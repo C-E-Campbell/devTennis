@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import axios from "axios";
 import styles from "./InventoryItem.module.scss";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -23,19 +22,8 @@ class InventoryItem extends React.Component {
   }
 
   addToCart = async () => {
-    if (this.props.user.currentUser) {
-      const cart = await axios.post("/api/addtocart", {
-        user: this.props.user.currentUser.id,
-        item: this.props.match.params.id
-      });
-      //   const cart = await axios.get(
-      //     `/api/getCart/${this.props.user.currentUser.id}`
-      //   );
-      //   this.props.getCart(cart.data);
-      if (cart) {
-        this.props.history.push("/cart");
-      }
-    }
+    await this.props.getCart(this.props.match.params.id);
+    this.props.history.push("/cart");
   };
 
   render() {
