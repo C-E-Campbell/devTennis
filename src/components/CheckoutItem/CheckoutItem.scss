@@ -1,25 +1,43 @@
 .cartItem {
-	display: flex;
-	margin: 1rem 0.5rem;
-	width: 80%;
-	align-items: center;
+  display: flex;
+  margin: 1rem 0.5rem;
+  width: 80%;
+  align-items: center;
 
-	div {
-		margin-left: 1rem;
-	}
+  div {
+    margin-left: 1rem;
+  }
 }
 
 .productImg {
-	height: 30px;
-	width: 30px;
-	border-radius: 50%;
-	margin-left: 1rem;
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+  border: 1px solid rgb(221, 221, 221);
+  margin-left: 1rem;
 }
 
 .deleteIcon {
-	color: #ccc;
-	&:hover {
-		color: rgb(179, 0, 0);
-		cursor: pointer;
-	}
+  color: #ccc;
+  &:hover {
+    color: rgb(179, 0, 0);
+    cursor: pointer;
+  }
+}
+.quantityContainer {
+  display: flex;
+  background-color: rgb(126, 219, 255);
+  padding: 5px;
+  border-radius: 4px;
+  justify-content: space-between;
+  width: 5rem;
+
+  i:hover {
+    color: #fff;
+    cursor: pointer;
+  }
+
+  div {
+    margin-left: 0;
+  }
 }

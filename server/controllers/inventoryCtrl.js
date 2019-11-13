@@ -21,10 +21,8 @@ module.exports = {
     const db = req.app.get("db");
     const { id } = req.params;
     const cartItems = await db.get_cart([id]);
-    const itemIds = cartItems.map(item => {
-      return item.item_id;
-    });
-    res.status(200).send(itemIds);
+
+    res.status(200).send(cartItems);
   },
   deleteItem: async (req, res) => {
     const db = req.app.get("db");
@@ -32,5 +30,13 @@ module.exports = {
     await db.delete_from_cart([id, user]);
 
     res.sendStatus(200);
+  },
+  increaseCart: async (req, res) => {
+    console.log("increase");
+    const db = req.app.get("db");
+    const { user, item } = req.body;
+  },
+  decreaseCart: async (req, res) => {
+    console.log("decrease");
   }
 };

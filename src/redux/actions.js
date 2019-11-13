@@ -7,6 +7,8 @@ import { CART_TOTAL } from "./InventoryReducer";
 import { DELETE_FROM_CART } from "./InventoryReducer";
 import { UPDATE_EMAIL } from "./UserReducer";
 import { OLD_CART } from "./InventoryReducer";
+import { ADD_ONE } from "./InventoryReducer";
+import { SUBTRACT_ONE } from "./InventoryReducer";
 
 export const register = user => ({
   type: REGISTER_USER,
@@ -55,4 +57,12 @@ export const deleteFromCart = newCart => ({
 export const oldCart = cart => ({
   type: OLD_CART,
   payload: cart
+});
+export const addOneToCart = id => ({
+  type: ADD_ONE,
+  payload: id
+});
+export const subtractOneFromCart = id => ({
+  type: SUBTRACT_ONE,
+  payload: id
 });

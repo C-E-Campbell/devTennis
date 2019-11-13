@@ -10,7 +10,9 @@ import {
   cartTotal,
   getCart,
   discountApplied,
-  deleteFromCart
+  deleteFromCart,
+  addOneToCart,
+  subtractOneFromCart
 } from "../../redux/actions";
 import { Link } from "react-router-dom";
 
@@ -24,9 +26,19 @@ class Cart extends Component {
     discountApplied: false
   };
 
+  increaseQuantity = id => {
+    this.props.addOneToCart(id);
+  };
+
+  decreaseQuantity = id => {
+    console.log(id);
+    this.props.subtractOneFromCart(id);
+  };
+
   deleteCartItem = async (id, user) => {
+    console.log(id, user);
     const result = await this.props.items.cart.filter(item => {
-      return item !== id;
+      return item.item_id !== id;
     });
     await this.props.deleteFromCart(result);
     await this.getCustomerCart();
@@ -49,24 +61,30 @@ class Cart extends Component {
   getCustomerCart = () => {
     const mappedCart = this.props.items.cart.map((cartItem, i) => {
       const filteredItems = this.props.items.inventory.filter(item => {
-        return item.item_id === cartItem;
+        return item.item_id === cartItem.item_id;
       });
       const cartStuff = filteredItems.map(cartProps => {
         return (
           <CheckoutItem
             key={cartProps.item_id}
             {...cartProps}
+            increase={this.increaseQuantity}
+            decrease={this.decreaseQuantity}
             delete={this.deleteCartItem}
+            quantity={cartItem.quantity}
           />
         );
       });
       return cartStuff;
     });
-
+    this.setState({
+      cartItems: mappedCart
+    });
     if (this.props.items.cart.length >= 0) {
       const subTotal = mappedCart
         .map((item, i) => {
-          return item[0].props.price;
+          console.log(item);
+          // return item[0].props.price * this.props.item.cart[].quantity
         })
         .reduce((acc, curr = 0) => {
           return (acc += curr);
@@ -168,7 +186,9 @@ const mapDispatchToProps = {
   cartTotal,
   getCart,
   discountApplied,
-  deleteFromCart
+  deleteFromCart,
+  subtractOneFromCart,
+  addOneToCart
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);

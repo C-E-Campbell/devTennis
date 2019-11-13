@@ -4,7 +4,7 @@ import styles from "./InventoryItem.module.scss";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import BasicHeader from "../BasicHeader/BasicHeader";
-import { getCart } from "../../redux/actions";
+import { getCart, addOneToCart } from "../../redux/actions";
 import axios from "axios";
 
 class InventoryItem extends React.Component {
@@ -29,7 +29,18 @@ class InventoryItem extends React.Component {
         item: this.props.match.params.id
       });
     }
-    await this.props.getCart(this.props.match.params.id);
+    const checkForItem = this.props.items.cart.findIndex(
+      item => item.item_id === Number(this.props.match.params.id)
+    );
+    if (checkForItem === -1) {
+      await this.props.getCart({
+        item_id: Number(this.props.match.params.id),
+        quantity: 1
+      });
+    } else {
+      await this.props.addOneToCart(Number(this.props.match.params.id));
+    }
+
     this.props.history.push("/cart");
   };
 
@@ -73,6 +84,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  getCart
+  getCart,
+  addOneToCart
 };
 export default connect(mapStateToProps, mapDispatchToProps)(InventoryItem);
