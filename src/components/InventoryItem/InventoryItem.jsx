@@ -5,6 +5,7 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import BasicHeader from "../BasicHeader/BasicHeader";
 import { getCart } from "../../redux/actions";
+import axios from "axios";
 
 class InventoryItem extends React.Component {
   constructor(props) {
@@ -22,6 +23,12 @@ class InventoryItem extends React.Component {
   }
 
   addToCart = async () => {
+    if (this.props.user.currentUser) {
+      axios.post("/api/addtocart", {
+        user: this.props.user.currentUser.id,
+        item: this.props.match.params.id
+      });
+    }
     await this.props.getCart(this.props.match.params.id);
     this.props.history.push("/cart");
   };

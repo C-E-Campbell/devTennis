@@ -8,48 +8,49 @@ import Email from "../../components/Email/Email";
 import ScrollOver from "../../components/ScrollOver/ScrollOver";
 import Footer from "../../components/Footer/Footer";
 import { connect } from "react-redux";
-import { getInventory, getCart } from "../../redux/actions";
+import { getInventory, getCart, oldCart } from "../../redux/actions";
 import axios from "axios";
 
 class Home extends Component {
-	async componentDidMount() {
-		const items = await axios.get("/api/inventory");
-		if (this.props.user.currentUser) {
-			const cart = await axios.get(
-				`/api/getCart/${this.props.user.currentUser.id}`
-			);
-			this.props.getCart(cart.data);
-		}
+  async componentDidMount() {
+    const items = await axios.get("/api/inventory");
+    if (this.props.user.currentUser) {
+      const cart = await axios.get(
+        `/api/getCart/${this.props.user.currentUser.id}`
+      );
 
-		this.props.getInventory(items.data);
-	}
+      if (cart.data.length >= 1) {
+        this.props.oldCart(cart.data);
+      }
+    }
 
-	render() {
-		return (
-			<div>
-				<LoginHeader />
-				<Header />
-				<Hero />
-				<About />
-				<Special />
-				<Email />
-				<ScrollOver />
-				<Footer />
-			</div>
-		);
-	}
+    this.props.getInventory(items.data);
+  }
+
+  render() {
+    return (
+      <div>
+        <LoginHeader />
+        <Header />
+        <Hero />
+        <About />
+        <Special />
+        <Email />
+        <ScrollOver />
+        <Footer />
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => {
-	return state;
+  return state;
 };
 
 const mapDispatchToProps = {
-	getInventory,
-	getCart
+  getInventory,
+  getCart,
+  oldCart
 };
 
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
