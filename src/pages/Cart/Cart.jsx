@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styles from "./Cart.module.scss";
-
+import axios from "axios";
 import Header from "../../components/Header/Header";
 import BasicHeader from "../../components/BasicHeader/BasicHeader";
 import Footer from "../../components/Footer/Footer";
@@ -24,12 +24,15 @@ class Cart extends Component {
     discountApplied: false
   };
 
-  deleteCartItem = async id => {
+  deleteCartItem = async (id, user) => {
     const result = await this.props.items.cart.filter(item => {
       return item !== id;
     });
     await this.props.deleteFromCart(result);
     await this.getCustomerCart();
+    if (this.props.user.currentUser) {
+      axios.delete(`/api/deletecartitem/${id}/${user}`);
+    }
   };
 
   applyDiscount = () => {

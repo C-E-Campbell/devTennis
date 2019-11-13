@@ -10,7 +10,7 @@ function CheckoutItem(props) {
       <div>${props.price}</div>
       <i
         onClick={() => {
-          props.delete(props.item_id);
+          props.delete(props.item_id, props.currentUser.id);
         }}
         className="far fa-trash-alt deleteIcon"
       ></i>
