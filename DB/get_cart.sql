@@ -1,4 +1,5 @@
 SELECT item_id,
-       quantity
+       quantity,
+       price
 from cart
 WHERE user_id = $1

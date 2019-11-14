@@ -18,9 +18,9 @@ import { Link } from "react-router-dom";
 
 class Cart extends Component {
   state = {
-    cartTotal: null,
-    tax: null,
-    sub: null,
+    cartTotal: 0,
+    tax: 0,
+    sub: 0,
     newCart: null,
     discount: "",
     discountApplied: false
@@ -28,30 +28,33 @@ class Cart extends Component {
 
   increaseQuantity = id => {
     this.props.addOneToCart(id);
+    this.getCustomerCart();
   };
 
   decreaseQuantity = id => {
-    console.log(id);
     this.props.subtractOneFromCart(id);
+    this.getCustomerCart();
   };
 
-  deleteCartItem = async (id, user) => {
-    console.log(id, user);
+  deleteCartItem = async id => {
     const result = await this.props.items.cart.filter(item => {
       return item.item_id !== id;
     });
-    await this.props.deleteFromCart(result);
-    await this.getCustomerCart();
+    this.props.deleteFromCart(result);
+    this.getCustomerCart();
     if (this.props.user.currentUser) {
-      axios.delete(`/api/deletecartitem/${id}/${user}`);
+      axios.delete(
+        `/api/deletecartitem/${id}/${this.props.user.currentUser.id}`
+      );
     }
   };
 
   applyDiscount = () => {
+    console.log("hello");
     if (this.state.discount === "15%_MoreHappy!") {
       const newNum = this.state.cartTotal * 0.85;
-      newNum.toFixed(2);
-      this.setState({ cartTotal: newNum, discountApplied: true });
+
+      this.setState({ cartTotal: newNum.toFixed(2), discountApplied: true });
       this.props.cartTotal(newNum.toFixed(2).replace(".", ""));
 
       this.props.discountApplied();
@@ -68,6 +71,8 @@ class Cart extends Component {
           <CheckoutItem
             key={cartProps.item_id}
             {...cartProps}
+            add={this.addTotal}
+            subtract={this.subtractTotal}
             increase={this.increaseQuantity}
             decrease={this.decreaseQuantity}
             delete={this.deleteCartItem}
@@ -77,22 +82,18 @@ class Cart extends Component {
       });
       return cartStuff;
     });
-    this.setState({
-      cartItems: mappedCart
-    });
+
     if (this.props.items.cart.length >= 0) {
-      const subTotal = mappedCart
-        .map((item, i) => {
-          console.log(item);
-          // return item[0].props.price * this.props.item.cart[].quantity
+      const cartTotal = this.props.items.cart
+        .map(item => {
+          return item.price * item.quantity;
         })
-        .reduce((acc, curr = 0) => {
-          return (acc += curr);
+        .reduce((acc, currentValue) => {
+          return (acc += currentValue);
         }, 0);
+      const subTotal = cartTotal;
       const tax = subTotal * 0.06;
-
       const total = subTotal * 0.06 + subTotal;
-
       this.setState({
         cartItems: mappedCart,
         cartTotal: total.toFixed(2),
@@ -132,10 +133,12 @@ class Cart extends Component {
                     <h3>SALES TAX</h3>
                     <h3>${this.state.tax}</h3>
                   </div>
-                  <div>
-                    <h3>WITH DISCOUNT</h3>
-                    <h3>- ${(this.state.cartTotal * 0.15).toFixed(2)}</h3>
-                  </div>
+                  {this.props.items.discountApplied ? (
+                    <div>
+                      <h3>WITH DISCOUNT</h3>
+                      <h3>- ${(this.state.cartTotal * 0.15).toFixed(2)}</h3>
+                    </div>
+                  ) : null}
 
                   <div>
                     <h3>TOTAL </h3>

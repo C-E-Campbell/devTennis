@@ -7,6 +7,10 @@ function CheckoutItem(props) {
   const thisItem = props.items.cart.findIndex(
     item => item.item_id === props.item_id
   );
+  const checkFor0 = props.items.cart.filter(item => {
+    return item.item_id === props.item_id;
+  });
+
   return (
     <div>
       <div className="cartItem">
@@ -19,7 +23,10 @@ function CheckoutItem(props) {
             <i
               className="fas fa-minus"
               onClick={() => {
-                props.decrease(props.item_id);
+                if (checkFor0[0].quantity === 1) {
+                } else {
+                  props.decrease(props.item_id);
+                }
               }}
             ></i>
           </div>
@@ -40,8 +47,7 @@ function CheckoutItem(props) {
         <div>
           <i
             onClick={() => {
-              console.log(props.item_id, props.user.currentUser.id);
-              props.delete(props.item_id, props.user.currentUser.id);
+              props.delete(props.item_id);
             }}
             className="far fa-trash-alt deleteIcon"
           ></i>

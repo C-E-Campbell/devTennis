@@ -26,7 +26,8 @@ class InventoryItem extends React.Component {
     if (this.props.user.currentUser) {
       axios.post("/api/addtocart", {
         user: this.props.user.currentUser.id,
-        item: this.props.match.params.id
+        item: this.props.match.params.id,
+        price: this.state.singleItem.price
       });
     }
     const checkForItem = this.props.items.cart.findIndex(
@@ -35,7 +36,8 @@ class InventoryItem extends React.Component {
     if (checkForItem === -1) {
       await this.props.getCart({
         item_id: Number(this.props.match.params.id),
-        quantity: 1
+        quantity: 1,
+        price: this.state.singleItem.price
       });
     } else {
       await this.props.addOneToCart(Number(this.props.match.params.id));

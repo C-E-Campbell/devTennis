@@ -6,7 +6,7 @@ module.exports = {
   },
   addToCart: async (req, res) => {
     const db = req.app.get("db");
-    const { item, user } = req.body;
+    const { item, user, price } = req.body;
     // const check = await db.check_cart_for_item({ item, user });
     // let quantity = check.length;
     // if (quantity === 0) {
@@ -14,7 +14,7 @@ module.exports = {
     // } else {
     // 	db.add_one([user, item]);
     // }
-    db.add_to_cart([user, item]);
+    db.add_to_cart([user, item, price]);
     res.sendStatus(200);
   },
   getCart: async (req, res) => {
