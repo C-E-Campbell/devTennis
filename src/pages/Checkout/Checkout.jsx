@@ -49,6 +49,14 @@ class Checkout extends Component {
           <div>
             <BasicHeader />
             <p>Would you like to complete the purchase?</p>
+            <form>
+              <input type="text" placeholder="First Name" />
+              <input type="text" placeholder="Last Name" />
+              <input type="text" placeholder="Address" />
+              <input type="text" placeholder="City" />
+              <input type="text" placeholder="State" />
+              <input type="text" placeholder="Zip" />
+            </form>
             <CardElement />
             <button onClick={this.submit}>Purchase</button>
             <Footer />
