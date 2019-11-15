@@ -9,6 +9,7 @@ import { UPDATE_EMAIL } from "./UserReducer";
 import { OLD_CART } from "./InventoryReducer";
 import { ADD_ONE } from "./InventoryReducer";
 import { SUBTRACT_ONE } from "./InventoryReducer";
+import { EMPTY_CART } from "./InventoryReducer";
 
 export const register = user => ({
   type: REGISTER_USER,
@@ -33,6 +34,11 @@ export const getInventory = items => ({
 export const getCart = items => ({
   type: GET_CART,
   payload: items
+});
+
+export const emptyCart = () => ({
+  type: EMPTY_CART,
+  payload: {}
 });
 
 export const cartTotal = total => ({

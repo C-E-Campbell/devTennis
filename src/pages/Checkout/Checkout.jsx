@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { emptyCart } from "../../redux/actions";
 import { CardElement, injectStripe } from "react-stripe-elements";
 import axios from "axios";
 import BasicHeader from "../../components/BasicHeader/BasicHeader";
@@ -28,6 +29,8 @@ class Checkout extends Component {
 
       if (response.status === 200) this.setState({ complete: true });
     }
+
+    this.props.emptyCart();
   }
 
   render() {
@@ -66,7 +69,9 @@ class Checkout extends Component {
 const mapStateToProps = state => {
   return state;
 };
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  emptyCart
+};
 export default connect(
   mapStateToProps,
   mapDispatchToProps

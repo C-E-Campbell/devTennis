@@ -13,6 +13,7 @@ export const DELETE_FROM_CART = "DELETE_FROM_CART";
 export const OLD_CART = "OLD_CART";
 export const ADD_ONE = "ADD_ONE";
 export const SUBTRACT_ONE = "SUBTRACT_ONE";
+export const EMPTY_CART = "EMPTY_CART";
 
 const inventoryReducer = (state = initialState, action) => {
   const { type, payload } = action;
@@ -46,6 +47,11 @@ const inventoryReducer = (state = initialState, action) => {
       return {
         ...state,
         discountApplied: true
+      };
+    case EMPTY_CART:
+      return {
+        ...state,
+        cart: []
       };
     case ADD_ONE:
       const thisItem = state.cart.findIndex(item => {
