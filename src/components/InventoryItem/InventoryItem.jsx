@@ -16,10 +16,14 @@ class InventoryItem extends React.Component {
   }
 
   componentDidMount() {
-    const myItem = this.props.items.inventory.filter(item => {
-      return item.item_id === Number(this.props.match.params.id);
-    });
-    this.setState({ singleItem: myItem[0] });
+    if (this.props.items.inventory[0]) {
+      const myItem = this.props.items.inventory.filter(item => {
+        return item.item_id === Number(this.props.match.params.id);
+      });
+      this.setState({ singleItem: myItem[0] });
+    } else {
+      this.props.history.push("/");
+    }
   }
 
   addToCart = async () => {

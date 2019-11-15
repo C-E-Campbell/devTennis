@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { getInventory } from "../../redux/actions";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import StoreGrid from "../../components/StoreGrid/StoreGrid";
 import "../WomensClothing/WomensClothing.scss";
-
+import axios from "axios";
 class MensClothing extends React.Component {
   constructor() {
     super();
@@ -15,17 +16,21 @@ class MensClothing extends React.Component {
   }
 
   async componentDidMount() {
-    const mensItems = this.props.items.inventory
-      .filter(item => {
-        return item.type === "Men";
-      })
-      .filter(item => {
-        return item.category === "Shoe";
-      });
+    if (this.props.items.inventory[0]) {
+      const mensItems = this.props.items.inventory
+        .filter(item => {
+          return item.type === "Men";
+        })
+        .filter(item => {
+          return item.category === "Shoe";
+        });
 
-    this.setState({
-      inventory: mensItems
-    });
+      this.setState({
+        inventory: mensItems
+      });
+    } else {
+      this.props.history.push("/");
+    }
   }
   render() {
     return (
@@ -42,9 +47,11 @@ class MensClothing extends React.Component {
     );
   }
 }
-
+const mapDispatchToProps = {
+  getInventory
+};
 const mapStateToProps = state => {
   return state;
 };
 
-export default connect(mapStateToProps, null)(MensClothing);
+export default connect(mapStateToProps, mapDispatchToProps)(MensClothing);

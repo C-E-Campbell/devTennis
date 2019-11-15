@@ -5,6 +5,7 @@ import Header from "../../components/Header/Header";
 import BasicHeader from "../../components/BasicHeader/BasicHeader";
 import Footer from "../../components/Footer/Footer";
 import CheckoutItem from "../../components/CheckoutItem/CheckoutItem";
+import { Bar } from "react-chartjs-2";
 import { connect } from "react-redux";
 import {
   cartTotal,
@@ -50,7 +51,6 @@ class Cart extends Component {
   };
 
   applyDiscount = () => {
-    console.log("hello");
     if (this.state.discount === "15%_MoreHappy!") {
       const newNum = this.state.cartTotal * 0.85;
 
@@ -171,7 +171,15 @@ class Cart extends Component {
             </div>
           </div>
         </div>
-
+        {/* <Bar data= {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [{
+        label: "My First dataset",
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
+        data: [0, 10, 5, 2, 20, 30, 45],
+        }]
+    }/> */}
         <Footer />
       </div>
     );

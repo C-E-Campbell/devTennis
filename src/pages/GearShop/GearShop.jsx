@@ -14,13 +14,17 @@ class Gear extends React.Component {
   }
 
   componentDidMount() {
-    const gearItems = this.props.items.inventory.filter(item => {
-      return item.category === "Gear";
-    });
+    if (this.props.items.inventory[0]) {
+      const gearItems = this.props.items.inventory.filter(item => {
+        return item.category === "Gear";
+      });
 
-    this.setState({
-      inventory: gearItems
-    });
+      this.setState({
+        inventory: gearItems
+      });
+    } else {
+      this.props.history.push("/");
+    }
   }
   render() {
     return (

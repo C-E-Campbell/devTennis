@@ -2,9 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import Header from "../../components/Header/Header";
+import { getInventory } from "../../redux/actions";
 import Footer from "../../components/Footer/Footer";
 import StoreGrid from "../../components/StoreGrid/StoreGrid";
 import "../WomensClothing/WomensClothing.scss";
+import axios from "axios";
 class MensClothing extends React.Component {
   constructor() {
     super();
@@ -13,17 +15,21 @@ class MensClothing extends React.Component {
     };
   }
 
-  componentDidMount() {
-    const mensItems = this.props.items.inventory
-      .filter(item => {
-        return item.type === "Men";
-      })
-      .filter(item => {
-        return item.category === "Top" || item.category === "Bottom";
+  async componentDidMount() {
+    if (this.props.items.inventory[0]) {
+      const mensItems = this.props.items.inventory
+        .filter(item => {
+          return item.type === "Men";
+        })
+        .filter(item => {
+          return item.category === "Top" || item.category === "Bottom";
+        });
+      this.setState({
+        inventory: mensItems
       });
-    this.setState({
-      inventory: mensItems
-    });
+    } else {
+      this.props.history.push("/");
+    }
   }
   render() {
     return (
@@ -40,11 +46,11 @@ class MensClothing extends React.Component {
     );
   }
 }
-
+const mapDispatchToProps = {
+  getInventory
+};
 const mapStateToProps = state => {
-  return {
-    items: state.items
-  };
+  return state;
 };
 
-export default connect(mapStateToProps, null)(MensClothing);
+export default connect(mapStateToProps, mapDispatchToProps)(MensClothing);

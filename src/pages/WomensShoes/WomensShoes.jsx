@@ -14,17 +14,21 @@ class WomensShoes extends React.Component {
   }
 
   async componentDidMount() {
-    const womensItems = this.props.items.inventory
-      .filter(item => {
-        return item.type === "Women";
-      })
-      .filter(item => {
-        return item.category === "Shoe";
-      });
+    if (this.props.items.inventory[0]) {
+      const womensItems = this.props.items.inventory
+        .filter(item => {
+          return item.type === "Women";
+        })
+        .filter(item => {
+          return item.category === "Shoe";
+        });
 
-    this.setState({
-      inventory: womensItems
-    });
+      this.setState({
+        inventory: womensItems
+      });
+    } else {
+      this.props.history.push("/");
+    }
   }
   render() {
     return (
