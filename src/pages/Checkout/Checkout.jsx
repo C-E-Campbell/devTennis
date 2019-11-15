@@ -10,7 +10,16 @@ import Footer from "../../components/Footer/Footer";
 class Checkout extends Component {
   constructor(props) {
     super(props);
-    this.state = { complete: false };
+    this.state = {
+      complete: false,
+      first: "",
+      last: "",
+      email: "",
+      zip: "",
+      city: "",
+      state: "",
+      address: ""
+    };
     this.submit = this.submit.bind(this);
   }
 
@@ -34,6 +43,12 @@ class Checkout extends Component {
     this.props.emptyCart();
   }
 
+  // sendReciept = () => {
+  //   axios.post("/api/sendReciept", {
+  //     first
+  //   });
+  // };
+
   render() {
     if (this.state.complete)
       return (
@@ -50,7 +65,7 @@ class Checkout extends Component {
           <div className={styles.checkout}>
             <BasicHeader />
             <p>Would you like to complete the purchase?</p>
-            <form className={styles.form}>
+            {/* <form onSubmit={this.sendReciept} className={styles.form}>
               <h2>Where should we send your stuff?</h2>
               {!this.props.user.currentUser ? (
                 <input type="email" placeholder="Email" />
@@ -61,7 +76,7 @@ class Checkout extends Component {
               <input type="text" placeholder="City" />
               <input type="text" placeholder="State" />
               <input type="text" placeholder="Zip" />
-            </form>
+            </form> */}
             <CardElement className={styles.form} />
             <button onClick={this.submit}>Purchase</button>
             <Footer />

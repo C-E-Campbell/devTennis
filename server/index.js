@@ -38,6 +38,7 @@ app.post("/api/login", auth.login);
 app.post("/api/addtocart", inventory.addToCart);
 app.post("/api/charge", util.sendPayment);
 app.post("/api/discount", util.sendDiscount);
+//app.post("/api/reciept", util.sendReceipt);
 
 app.put("/api/updateEmail", user.updateEmail);
 app.put("/api/updatePass", user.updatePass);
@@ -46,9 +47,4 @@ app.put("/api/decreasecart", inventory.decreaseCart);
 app.delete("/api/logout", auth.logout);
 app.delete("/api/deletecartitem/:id/:user", inventory.deleteItem);
 
-const path = require("path");
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../build/index.html"));
-});
 app.listen(PORT, () => console.log(`server running on ${PORT}`));
