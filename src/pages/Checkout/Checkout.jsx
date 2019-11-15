@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { emptyCart } from "../../redux/actions";
 import { CardElement, injectStripe } from "react-stripe-elements";
 import axios from "axios";
+import styles from "./Checkout.module.scss";
 import BasicHeader from "../../components/BasicHeader/BasicHeader";
 import Footer from "../../components/Footer/Footer";
 class Checkout extends Component {
@@ -44,12 +45,16 @@ class Checkout extends Component {
       );
 
     return (
-      <div className="checkout">
+      <div>
         {this.props.items.cart[0] ? (
-          <div>
+          <div className={styles.checkout}>
             <BasicHeader />
             <p>Would you like to complete the purchase?</p>
-            <form>
+            <form className={styles.form}>
+              <h2>Where should we send your stuff?</h2>
+              {!this.props.user.currentUser ? (
+                <input type="email" placeholder="Email" />
+              ) : null}
               <input type="text" placeholder="First Name" />
               <input type="text" placeholder="Last Name" />
               <input type="text" placeholder="Address" />
@@ -57,7 +62,7 @@ class Checkout extends Component {
               <input type="text" placeholder="State" />
               <input type="text" placeholder="Zip" />
             </form>
-            <CardElement />
+            <CardElement className={styles.form} />
             <button onClick={this.submit}>Purchase</button>
             <Footer />
           </div>

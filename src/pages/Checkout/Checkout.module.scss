@@ -1,0 +1,23 @@
+checkout {
+  font-family: "Oswald", sans-serif;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  font-family: "Oswald", sans-serif;
+
+  h2 {
+    font-size: 2.2rem;
+  }
+
+  input {
+    border: 1px solid #ccc;
+    margin: 0.5rem;
+    padding: 0.3rem;
+    border-radius: 4px;
+  }
+}
