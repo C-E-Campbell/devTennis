@@ -7,14 +7,15 @@ module.exports = {
   addToCart: async (req, res) => {
     const db = req.app.get("db");
     const { item, user, price } = req.body;
-    // const check = await db.check_cart_for_item({ item, user });
-    // let quantity = check.length;
-    // if (quantity === 0) {
-    // 	db.add_quantity([user, item]);
-    // } else {
-    // 	db.add_one([user, item]);
-    // }
-    db.add_to_cart([user, item, price]);
+    const check = await db.check_cart_for_item([item, user]);
+    let quantity = check.length;
+    console.log("added", quantity);
+    if (quantity === 0) {
+      db.add_to_cart([user, item, price]);
+    } else {
+      db.add_quantity([user, item]);
+    }
+
     res.sendStatus(200);
   },
   getCart: async (req, res) => {
@@ -28,15 +29,20 @@ module.exports = {
     const db = req.app.get("db");
     const { id, user } = req.params;
     await db.delete_from_cart([id, user]);
-
     res.sendStatus(200);
   },
-  increaseCart: async (req, res) => {
-    console.log("increase");
-    const db = req.app.get("db");
-    const { user, item } = req.body;
-  },
   decreaseCart: async (req, res) => {
-    console.log("decrease");
+    const db = req.app.get("db");
+    const { item, user } = req.body;
+    const quantity = await db.get_current_quantity([user, item]);
+
+    console.log("subtract", quantity);
+    if (quantity[0].quantity > 1) {
+      db.decrease_quantity([user, item]);
+    } else {
+      await db.delete_from_cart([item, user]);
+    }
+
+    res.sendStatus(200);
   }
 };

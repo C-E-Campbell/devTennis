@@ -25,7 +25,7 @@ function CheckoutItem(props) {
               onClick={() => {
                 if (checkFor0[0].quantity === 1) {
                 } else {
-                  props.decrease(props.item_id);
+                  props.decrease(props.item_id, props.price);
                 }
               }}
             ></i>
@@ -39,7 +39,7 @@ function CheckoutItem(props) {
             <i
               className="fas fa-plus"
               onClick={() => {
-                props.increase(props.item_id);
+                props.increase(props.item_id, props.price);
               }}
             ></i>
           </div>

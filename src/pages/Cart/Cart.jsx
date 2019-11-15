@@ -27,13 +27,27 @@ class Cart extends Component {
     discountApplied: false
   };
 
-  increaseQuantity = id => {
+  increaseQuantity = async (id, price) => {
     this.props.addOneToCart(id);
+    if (this.props.user.currentUser) {
+      await axios.post("/api/addtocart", {
+        user: this.props.user.currentUser.id,
+        item: id,
+        price: price
+      });
+    }
     this.getCustomerCart();
   };
 
-  decreaseQuantity = id => {
+  decreaseQuantity = async (id, price) => {
     this.props.subtractOneFromCart(id);
+    if (this.props.user.currentUser) {
+      await axios.put("/api/decreasecart", {
+        user: this.props.user.currentUser.id,
+        item: id,
+        price: price
+      });
+    }
     this.getCustomerCart();
   };
 

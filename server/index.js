@@ -41,7 +41,6 @@ app.post("/api/discount", util.sendDiscount);
 
 app.put("/api/updateEmail", user.updateEmail);
 app.put("/api/updatePass", user.updatePass);
-app.put("/api/increasecart", inventory.increaseCart);
 app.put("/api/decreasecart", inventory.decreaseCart);
 
 app.delete("/api/logout", auth.logout);
