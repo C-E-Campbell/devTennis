@@ -5,7 +5,7 @@ import Header from "../../components/Header/Header";
 import BasicHeader from "../../components/BasicHeader/BasicHeader";
 import Footer from "../../components/Footer/Footer";
 import CheckoutItem from "../../components/CheckoutItem/CheckoutItem";
-import { Bar } from "react-chartjs-2";
+
 import { connect } from "react-redux";
 import {
   cartTotal,

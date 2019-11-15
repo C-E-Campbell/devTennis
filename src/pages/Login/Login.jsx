@@ -15,16 +15,20 @@ class Login extends Component {
   }
 
   handleSubmit = async e => {
+    e.preventDefault();
     if (this.state.email === "" || this.state.password === "") {
-      e.preventDefault();
+      alert("Must enter password and/or email");
     } else {
-      e.preventDefault();
-      const registerUser = await axios.post("/api/login", {
-        email: this.state.email,
-        password: this.state.password
-      });
-      await this.props.login(registerUser.data);
-      this.props.history.push("/");
+      try {
+        const registerUser = await axios.post("/api/login", {
+          email: this.state.email,
+          password: this.state.password
+        });
+        await this.props.login(registerUser.data);
+        this.props.history.push("/");
+      } catch (err) {
+        alert("email/password is incorrect, you may need to register first");
+      }
     }
   };
 

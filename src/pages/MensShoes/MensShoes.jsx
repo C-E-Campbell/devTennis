@@ -6,7 +6,7 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import StoreGrid from "../../components/StoreGrid/StoreGrid";
 import "../WomensClothing/WomensClothing.scss";
-import axios from "axios";
+
 class MensClothing extends React.Component {
   constructor() {
     super();
