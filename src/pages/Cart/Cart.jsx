@@ -122,7 +122,12 @@ class Cart extends Component {
             <h2>Your Cart:</h2>
             <Link to="/gear">Continue Shopping</Link>
             <div className={styles.checkoutBox}>
-              <div className={styles.itemBox}>{this.state.cartItems}</div>
+              {this.props.items.cart[0] ? (
+                <div className={styles.itemBox}>{this.state.cartItems}</div>
+              ) : (
+                <div className={styles.itemBox}>Cart is empty</div>
+              )}
+
               <div className={styles.subtotalBox}>
                 <div>
                   <div>
