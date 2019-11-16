@@ -9,7 +9,7 @@ module.exports = {
     const { item, user, price } = req.body;
     const check = await db.check_cart_for_item([item, user]);
     let quantity = check.length;
-    console.log("added", quantity);
+
     if (quantity === 0) {
       db.add_to_cart([user, item, price]);
     } else {
@@ -36,7 +36,6 @@ module.exports = {
     const { item, user } = req.body;
     const quantity = await db.get_current_quantity([user, item]);
 
-    console.log("subtract", quantity);
     if (quantity[0].quantity > 1) {
       db.decrease_quantity([user, item]);
     } else {
@@ -44,5 +43,11 @@ module.exports = {
     }
 
     res.sendStatus(200);
+  },
+  emptyAfterPurchase: async (req, res) => {
+    const db = req.app.get("db");
+    const { user_id } = req.params;
+    await db.delete_all_items_for_user([user_id]);
+    res.status(200).send("everything deleted");
   }
 };

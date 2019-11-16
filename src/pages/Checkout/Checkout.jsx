@@ -7,6 +7,7 @@ import axios from "axios";
 import styles from "./Checkout.module.scss";
 import BasicHeader from "../../components/BasicHeader/BasicHeader";
 import Footer from "../../components/Footer/Footer";
+
 class Checkout extends Component {
   constructor(props) {
     super(props);
@@ -43,11 +44,37 @@ class Checkout extends Component {
     this.props.emptyCart();
   }
 
-  // sendReciept = () => {
-  //   axios.post("/api/sendReciept", {
-  //     first
-  //   });
-  // };
+  sendReciept = () => {
+    if (this.props.user.currentUser) {
+      axios.post("/api/reciept", {
+        first: this.state.first,
+        last: this.state.last,
+        address: this.state.address,
+        city: this.state.city,
+        state: this.state.state,
+        zip: this.state.zip,
+        sendTo: this.props.user.currentUser.email
+      });
+    } else {
+      axios.post("/api/reciept", {
+        first: this.state.first,
+        last: this.state.last,
+        address: this.state.address,
+        city: this.state.city,
+        state: this.state.state,
+        zip: this.state.zip,
+        email: this.state.email
+      });
+    }
+  };
+
+  deleteMyItems = () => {
+    try {
+      axios.delete(`/api/deletemyitems/${this.props.user.currentUser.id}`);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   render() {
     if (this.state.complete)
@@ -62,23 +89,66 @@ class Checkout extends Component {
     return (
       <div>
         {this.props.items.cart[0] ? (
-          <div className={styles.checkout}>
+          <div className={styles.checkoutPage}>
             <BasicHeader />
             <p>Would you like to complete the purchase?</p>
-            {/* <form onSubmit={this.sendReciept} className={styles.form}>
+            <form className={styles.form}>
               <h2>Where should we send your stuff?</h2>
               {!this.props.user.currentUser ? (
-                <input type="email" placeholder="Email" />
+                <input
+                  value={this.state.email}
+                  onChange={e => this.setState({ email: e.target.value })}
+                  type="email"
+                  placeholder="Email"
+                />
               ) : null}
-              <input type="text" placeholder="First Name" />
-              <input type="text" placeholder="Last Name" />
-              <input type="text" placeholder="Address" />
-              <input type="text" placeholder="City" />
-              <input type="text" placeholder="State" />
-              <input type="text" placeholder="Zip" />
-            </form> */}
-            <CardElement className={styles.form} />
-            <button onClick={this.submit}>Purchase</button>
+              <input
+                value={this.state.first}
+                onChange={e => this.setState({ first: e.target.value })}
+                type="text"
+                placeholder="First Name"
+              />
+              <input
+                value={this.state.last}
+                onChange={e => this.setState({ last: e.target.value })}
+                type="text"
+                placeholder="Last Name"
+              />
+              <input
+                value={this.state.address}
+                onChange={e => this.setState({ address: e.target.value })}
+                type="text"
+                placeholder="Address"
+              />
+              <input
+                value={this.state.city}
+                onChange={e => this.setState({ city: e.target.value })}
+                type="text"
+                placeholder="City"
+              />
+              <input
+                value={this.state.state}
+                onChange={e => this.setState({ state: e.target.value })}
+                type="text"
+                placeholder="State"
+              />
+              <input
+                value={this.state.zip}
+                onChange={e => this.setState({ zip: e.target.value })}
+                type="text"
+                placeholder="Zip"
+              />
+            </form>
+            <CardElement className={styles.cardElement} />
+            <button
+              onClick={() => {
+                this.sendReciept();
+                this.submit();
+                this.deleteMyItems();
+              }}
+            >
+              Purchase
+            </button>
             <Footer />
           </div>
         ) : (

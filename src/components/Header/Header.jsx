@@ -47,7 +47,27 @@ class Header extends Component {
                       }}
                       className="item"
                     >
-                      View/Edit Profile
+                      Update Account Info
+                    </div>
+                    <div
+                      onClick={() => {
+                        this.props.history.push(
+                          `/profile/${this.props.user.currentUser.id}`
+                        );
+                      }}
+                      className="item"
+                    >
+                      Favorites
+                    </div>
+                    <div
+                      onClick={() => {
+                        this.props.history.push(
+                          `/profile/${this.props.user.currentUser.id}`
+                        );
+                      }}
+                      className="item"
+                    >
+                      Purchase History
                     </div>
                   </div>
                 </div>
