@@ -23,3 +23,11 @@ header {
     height: 50px;
   }
 }
+@media (max-width: 600px) {
+  header {
+    justify-content: space-between;
+  }
+  .LogoBox {
+    max-width: 300px;
+  }
+}

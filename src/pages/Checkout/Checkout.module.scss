@@ -3,7 +3,7 @@ form {
   flex-direction: column;
   max-width: 600px;
   width: 100%;
-  margin: 0 auto;
+  margin: 1rem auto;
   font-family: "Oswald", sans-serif;
 
   h2 {
@@ -16,6 +16,26 @@ form {
     padding: 0.3rem;
     border-radius: 4px;
   }
+}
+.purchaseBtn {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #00e1ff;
+  color: #333;
+  border-radius: 4px;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  border: none;
+  color: rgb(32, 32, 32);
+  cursor: pointer;
+  font-family: "Oswald", sans-serif;
+  &:hover {
+    color: #fff;
+  }
+}
+.checkoutPage {
+  height: 90vh;
+  text-align: center;
 }
 .checkoutPage1 {
   text-align: center;

@@ -1,5 +1,5 @@
 import React from "react";
-
+import BasicHeader from "../../components/BasicHeader/BasicHeader";
 import Header from "../../components/Header/Header";
 import { Link } from "react-router-dom";
 import clothing from "../../assets/menClothing.jpg";
@@ -9,9 +9,7 @@ import Footer from "../../components/Footer/Footer";
 const MensShop = () => {
   return (
     <div>
-      <header>
-        <Link to="/">Home</Link>
-      </header>
+      <BasicHeader />
       <section>
         <Header />
         <div className="shop-heading">

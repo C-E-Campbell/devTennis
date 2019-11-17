@@ -5,13 +5,12 @@ import { Link } from "react-router-dom";
 import WomenShop from "../../assets/nikeshopgirl.jpg";
 import Shoe from "../../assets/shoe.jpg";
 import Footer from "../../components/Footer/Footer";
+import BasicHeader from "../../components/BasicHeader/BasicHeader";
 
 const WomensShop = () => {
   return (
     <div>
-      <header>
-        <Link to="/">Home</Link>
-      </header>
+      <BasicHeader />
       <section className="womensPage">
         <Header />
         <div className="shop-heading">

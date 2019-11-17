@@ -79,9 +79,12 @@ class Checkout extends Component {
   render() {
     if (this.state.complete)
       return (
-        <div className={styles.checkoutPage}>
+        <div className={styles.checkoutPage1}>
           <BasicHeader />
-          <h1>Purchase Complete</h1>
+          <h2>Purchase Complete</h2>
+          <Link className={styles.homeBtn} to="/">
+            Return home
+          </Link>
         </div>
       );
 
@@ -90,7 +93,7 @@ class Checkout extends Component {
         {this.props.items.cart[0] ? (
           <div className={styles.checkoutPage}>
             <BasicHeader />
-            <p>Would you like to complete the purchase?</p>
+
             <form className={styles.form}>
               <h2>Where should we send your stuff?</h2>
               {!this.props.user.currentUser ? (
@@ -140,6 +143,7 @@ class Checkout extends Component {
             </form>
             <CardElement className={styles.cardElement} />
             <button
+              className={styles.purchaseBtn}
               onClick={() => {
                 this.sendReciept();
                 this.submit();

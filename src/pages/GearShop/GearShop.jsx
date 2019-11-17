@@ -5,6 +5,7 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import StoreGrid from "../../components/StoreGrid/StoreGrid";
 import "../WomensClothing/WomensClothing.scss";
+import BasicHeader from "../../components/BasicHeader/BasicHeader";
 class Gear extends React.Component {
   constructor() {
     super();
@@ -29,9 +30,7 @@ class Gear extends React.Component {
   render() {
     return (
       <div>
-        <header>
-          <Link to="/">Home</Link>
-        </header>
+        <BasicHeader />
         <section className="mensPage">
           <Header />
           <StoreGrid clothing={this.state.inventory} />
