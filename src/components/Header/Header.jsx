@@ -23,7 +23,9 @@ class Header extends Component {
     return (
       <div className="header-div">
         <nav className={styles.MainNav}>
-          <div className={styles.LogoBox}>Dev Tennis</div>
+          <div className={styles.LogoBox}>
+            <Link to="/">Dev Tennis</Link>
+          </div>
           <div className={styles.LinkBox}>
             <Link to="/mens">Men</Link>
             <Link to="/womens">Women</Link>

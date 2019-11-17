@@ -1,82 +1,111 @@
 .Special {
-	width: 100%;
-	max-width: 1060px;
-	margin: 0 auto;
-	font-family: "Oswald", sans-serif;
-	overflow: hidden;
+  width: 100%;
+  max-width: 1060px;
+  margin: 0 auto;
+  font-family: "Oswald", sans-serif;
+  overflow: hidden;
 
-	h2 {
-		margin-top: 2rem;
-		font-size: 2rem;
-		margin-bottom: 0.5rem;
-	}
+  h2 {
+    margin-top: 2rem;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
 
-	.clothingBox {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		height: 300px;
-		margin-bottom: 1rem;
-		overflow: hidden;
-	}
+  .clothingBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 300px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
 
-	.clothing {
-		height: 100%;
-		width: 300px;
-		overflow: hidden;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+  .clothing {
+    height: 100%;
+    width: 300px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-		h3 {
-			color: #fff;
-			font-size: 2rem;
-			text-shadow: 1px 1px 3px #000;
-		}
+    h3 {
+      color: #fff;
+      font-size: 2rem;
+      text-shadow: 1px 1px 3px #000;
+    }
 
-		&:nth-child(1) {
-			//background-image: url("../../assets/Womens.jpeg");
-			background: linear-gradient(rgba(0, 0, 0, 0.219), rgba(0, 0, 0, 0.171)),
-				url("../../assets/womensSports.jpg");
-			background-size: cover;
-			background-position: center;
-		}
-		&:nth-child(2) {
-			background: linear-gradient(rgba(0, 0, 0, 0.219), rgba(0, 0, 0, 0.171)),
-				url("../../assets/menSports.jpg");
-			background-size: cover;
-			background-position: center;
-		}
-		&:nth-child(3) {
-			background: linear-gradient(rgba(0, 0, 0, 0.219), rgba(0, 0, 0, 0.171)),
-				url("../../assets/logregImg-min.jpeg");
-			background-size: cover;
-			background-position: center;
-		}
-	}
-	.sportsWear {
-		display: flex;
-		justify-content: space-between;
-		margin: 0 auto;
-		height: 500px;
-		width: 1060px;
-		position: relative;
+    &:nth-child(1) {
+      //background-image: url("../../assets/Womens.jpeg");
+      background: linear-gradient(rgba(0, 0, 0, 0.219), rgba(0, 0, 0, 0.171)),
+        url("../../assets/womensSports.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+    &:nth-child(2) {
+      background: linear-gradient(rgba(0, 0, 0, 0.219), rgba(0, 0, 0, 0.171)),
+        url("../../assets/menSports.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+    &:nth-child(3) {
+      background: linear-gradient(rgba(0, 0, 0, 0.219), rgba(0, 0, 0, 0.171)),
+        url("../../assets/logregImg-min.jpeg");
+      background-size: cover;
+      background-position: center;
+    }
+  }
+  .sportsWear {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    height: 500px;
+    width: 1060px;
+    position: relative;
 
-		.quote {
-			display: flex;
-			width: 40%;
-			flex-direction: column;
-			align-items: flex-end;
-			z-index: 9;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-60%, -50%);
+    .quote {
+      display: flex;
+      width: 40%;
+      flex-direction: column;
+      align-items: flex-end;
+      z-index: 9;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-60%, -50%);
 
-			h2 {
-				font-size: 3rem;
-				font-weight: bold;
-			}
-		}
-	}
+      h2 {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+    }
+  }
+}
+@media (max-width: 600px) {
+  .Special {
+    .clothingBox {
+      flex-direction: column;
+      height: 100%;
+    }
+    .clothing {
+      height: 200px;
+      width: 100%;
+      img {
+        height: 300px;
+      }
+    }
+
+    .sportsWear {
+      width: 600px;
+      justify-content: space-evenly;
+      .quote {
+        width: 100px;
+        top: 50%;
+        left: 30%;
+      }
+
+      .womenSports {
+        display: none;
+      }
+    }
+  }
 }

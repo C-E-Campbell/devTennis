@@ -6,8 +6,8 @@ export default function Hero() {
   return (
     <div className={"Hero"}>
       <div className={"cta_box"}>
-        <h1>Play Tennis</h1>
-        <p>dev mountain personal project</p>
+        <h1>Dev Tennis</h1>
+        <p>Keep it on the court</p>
         <Link to="/gear">Visit Store</Link>
         <Link to="/stats" className={"secondary-btn"}>
           Check Rankings

@@ -1,42 +1,57 @@
 .LoginNav {
-	display: flex;
-	justify-content: space-between;
-	background-color: #00e1ff;
-	padding: 0.5rem 0;
-	font-family: "Oswald", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  background-color: #00e1ff;
+  padding: 0.5rem 0;
+  font-family: "Oswald", sans-serif;
 
-	button {
-		border: none;
-		color: #333;
-		background-color: transparent;
-		font-family: "Oswald", sans-serif;
+  button {
+    border: none;
+    color: #333;
+    background-color: transparent;
+    font-family: "Oswald", sans-serif;
 
-		&:hover {
-			color: #fff;
-			cursor: pointer;
-		}
-	}
-	.LogoBox {
-		display: flex;
-		justify-content: space-around;
-		align-items: center;
-		max-width: 500px;
-		flex-grow: 3;
+    &:hover {
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+  .LogoBox {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 500px;
+    flex-grow: 3;
 
-		img {
-			height: 50px;
-		}
-	}
+    img {
+      height: 50px;
+    }
+  }
 
-	.LoginBox {
-		display: flex;
-		justify-content: space-around;
-		align-items: center;
-		max-width: 300px;
-		flex-grow: 1;
-	}
+  .LoginBox {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 300px;
+    flex-grow: 1;
+  }
 
-	a:hover {
-		color: #fff;
-	}
+  a:hover {
+    color: #fff;
+  }
+}
+
+@media (max-width: 600px) {
+  .LoginNav {
+    .LoginBox {
+      width: 100%;
+    }
+    .LogoBox {
+      height: 30px;
+
+      img {
+        display: none;
+      }
+    }
+  }
 }

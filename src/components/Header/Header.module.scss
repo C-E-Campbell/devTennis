@@ -1,79 +1,82 @@
 .MainNav {
-	display: flex;
-	width: 100%;
-	margin: 0 auto;
-	padding: 0.5rem 0;
-	justify-content: space-between;
-	align-items: center;
-	font-family: "Oswald", sans-serif;
-	.LogoBox {
-		padding-left: 2rem;
-	}
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.5rem 0;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Oswald", sans-serif;
+  .LogoBox {
+    padding-left: 2rem;
+    &:hover {
+      color: #00e1ff;
+    }
+  }
 
-	.LinkBox {
-		flex-grow: 3;
-		display: flex;
-		flex-grow: 3;
-		max-width: 800px;
-		height: 100%;
-		width: 100%;
-		justify-content: space-evenly;
+  .LinkBox {
+    flex-grow: 3;
+    display: flex;
+    flex-grow: 3;
+    max-width: 800px;
+    height: 100%;
+    width: 100%;
+    justify-content: space-evenly;
 
-		a {
-			padding: 5px;
-			height: 100%;
-		}
+    a {
+      padding: 5px;
+      height: 100%;
+    }
 
-		a:hover {
-			color: #00e1ff;
-			border-radius: 4px;
-			background-color: #333;
-		}
-	}
+    a:hover {
+      color: #00e1ff;
+      border-radius: 4px;
+      background-color: #333;
+    }
+  }
 
-	.CartBox {
-		padding-right: 2rem;
-		align-items: center;
-		display: flex;
-		img {
-			height: 25px;
-			&:hover {
-				cursor: pointer;
-			}
-		}
-	}
+  .CartBox {
+    padding-right: 2rem;
+    align-items: center;
+    display: flex;
+    img {
+      height: 25px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
 }
 .header-div {
-	position: relative;
+  position: relative;
 }
 .getfked {
-	text-align: center;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	margin: 0 auto;
-	position: absolute;
-	height: 40%;
-	z-index: 500;
-	background-color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  position: absolute;
+  height: 40%;
+  z-index: 500;
+  background-color: #fff;
 }
 .getsuperfked {
-	position: absolute;
-	z-index: 500;
-	display: none;
-	text-align: center;
-	width: 100%;
-	margin: 0 auto;
-	height: 300px;
+  position: absolute;
+  z-index: 500;
+  display: none;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  height: 300px;
 }
 .profileBox {
-	display: flex;
-	width: 200px;
-	justify-content: space-around;
-	align-items: center;
+  display: flex;
+  width: 200px;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .active {
-	color: red;
+  color: red;
 }

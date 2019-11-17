@@ -1,53 +1,67 @@
 .About {
-	display: flex;
-	justify-content: center;
-	align-content: center;
-	margin: 0 auto;
-	max-width: 1060px;
-	width: 100%;
-	height: 500px;
-	margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 0 auto;
+  max-width: 1060px;
+  width: 100%;
+  height: 500px;
+  margin-top: 1rem;
 
-	.aboutText {
-		width: 100%;
-		background: url("../../assets//black-min.jpg");
+  .aboutText {
+    width: 100%;
+    background: url("../../assets//black-min.jpg");
+    font-family: "Oswald", sans-serif;
+    align-items: center;
+    background-size: cover;
+    background-position: right;
+    color: #fff;
+    position: relative;
 
-		font-family: "Oswald", sans-serif;
-		align-items: center;
-		background-size: cover;
-		color: #fff;
-		position: relative;
+    div {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-70%, -40%);
+    }
 
-		div {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-70%, -40%);
-		}
+    h4 {
+      font-size: 3.5rem;
+      padding: 1rem 0;
+    }
 
-		h4 {
-			font-size: 3.5rem;
-			padding: 1rem 0;
-		}
+    p {
+      font-size: 1.2rem;
+      padding: 1rem 0;
+    }
 
-		p {
-			font-size: 1.2rem;
-			padding: 1rem 0;
-		}
+    button {
+      border-radius: 4px;
+      padding: 0.5rem;
+      font-size: 1.1rem;
+      border: none;
+      background-color: rgb(255, 255, 255);
+      color: rgb(32, 32, 32);
+      cursor: pointer;
 
-		button {
-			border-radius: 4px;
-			padding: 0.5rem;
-			font-size: 1.1rem;
-			border: none;
-			background-color: rgb(255, 255, 255);
-			color: rgb(32, 32, 32);
-			cursor: pointer;
+      &:hover {
+        background-color: #00e1ff;
+        color: #fff;
+      }
+    }
+  }
+}
+@media (max-width: 600px) {
+  .About {
+    .aboutText {
+      background: linear-gradient(rgba(0, 0, 0, 0.342), rgb(0, 0, 0)),
+        url("../../assets//black-min.jpg");
+      background-size: cover;
+      background-position: right;
 
-			&:hover {
-				background-color: #00e1ff;
-				color: #fff;
-			}
-		}
-	}
+      h4 {
+        font-size: 2rem;
+      }
+    }
+  }
 }
