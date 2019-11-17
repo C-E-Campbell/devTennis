@@ -1,31 +1,44 @@
 .Footer {
-	display: flex;
-	font-family: "Oswald", sans-serif;
-	flex-direction: column;
-	margin: 0 auto;
-	width: 100%;
-	max-width: 100%;
-	justify-content: space-around;
-	align-items: center;
-	height: 250px;
-	background-color: rgb(17, 17, 17);
-	color: #fff;
+  display: flex;
+  font-family: "Oswald", sans-serif;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  height: 250px;
+  background-color: rgb(17, 17, 17);
+  color: #fff;
 
-	.iconBox {
-		display: flex;
-		width: 40%;
-		justify-content: space-around;
-		align-items: center;
-	}
+  .iconBox {
+    display: flex;
+    width: 40%;
+    justify-content: space-around;
+    align-items: center;
+  }
 
-	.privacyBox {
-		display: flex;
-		justify-content: space-around;
-		width: 60%;
-		margin: 0 auto;
+  .privacyBox {
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    margin: 0 auto;
 
-		h6:hover {
-			color: #00e1ff;
-		}
-	}
+    h6:hover {
+      color: #00e1ff;
+    }
+  }
+}
+@media (max-width: 600px) {
+  .Footer {
+    height: 150px;
+
+    .iconBox {
+      width: 100%;
+    }
+
+    .privacyBox {
+      width: 100%;
+    }
+  }
 }

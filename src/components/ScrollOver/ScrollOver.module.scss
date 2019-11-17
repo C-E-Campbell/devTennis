@@ -1,18 +1,29 @@
 .scrollOver {
-	height: 500px;
-	width: 100%;
-	background: url("../../assets/dive.jpg");
-	background-size: cover;
-	background-position: top;
-	background-attachment: fixed;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-family: "Oswald", sans-serif;
+  height: 500px;
+  width: 100%;
+  background: url("../../assets/dive.jpeg");
+  background-size: cover;
+  background-position: top;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Oswald", sans-serif;
 
-	.heading {
-		color: #fff;
-		font-size: 9rem;
-		font-weight: 700;
-	}
+  .heading {
+    color: #fff;
+    font-size: 9rem;
+    font-weight: 700;
+  }
+}
+@media (max-width: 600px) {
+  .scrollOver {
+    background-position: top;
+    height: 500px;
+    margin: 0 auto;
+    .heading {
+      text-align: center;
+      font-size: 4rem;
+    }
+  }
 }
