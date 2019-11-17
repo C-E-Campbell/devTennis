@@ -41,3 +41,17 @@
     margin-left: 0;
   }
 }
+@media (max-width: 600px) {
+  .cartItem {
+    display: flex;
+    width: 100%;
+    margin: 0.5rem auto;
+    justify-content: space-between;
+    div {
+      margin: 0.2rem;
+    }
+  }
+  .productImg {
+    margin: 0;
+  }
+}

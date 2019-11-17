@@ -64,8 +64,8 @@ class InventoryItem extends React.Component {
             />
           </div>
           <div className={styles.descriptionBox}>
-            <h3>${this.state.singleItem.price}</h3>
             <h3>{this.state.singleItem.name}</h3>
+            <h3>${this.state.singleItem.price}</h3>
             <p>{this.state.singleItem.description}</p>
 
             <button

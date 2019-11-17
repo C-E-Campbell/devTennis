@@ -183,9 +183,8 @@ class Cart extends Component {
                       <button>Apply Discount</button>
                     </form>
                   </div>
+                  <Link to="/checkout">CHECKOUT</Link>
                 </div>
-
-                <Link to="/checkout">CHECKOUT</Link>
               </div>
             </div>
           </div>

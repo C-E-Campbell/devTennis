@@ -1,70 +1,89 @@
 .cartContainer {
-	margin: 0 auto;
-	max-width: 1060px;
-	width: 100%;
+  margin: 0 auto;
+  max-width: 1060px;
+  width: 100%;
 }
 
 .cart {
-	margin: 2rem auto;
-	min-height: 90vh;
-	font-family: "Oswald", sans-serif;
-	border: 1px solid rgb(209, 209, 209);
-	padding: 2rem;
+  margin: 2rem auto;
+  min-height: 90vh;
+  font-family: "Oswald", sans-serif;
+  border: 1px solid rgb(209, 209, 209);
+  padding: 2rem;
 
-	a {
-		margin-top: 1rem;
-	}
+  a {
+    margin-top: 1rem;
+  }
 
-	h2 {
-		font-size: 2rem;
-		margin-bottom: 1rem;
-	}
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
 }
 
 .checkoutBox {
-	display: flex;
-	justify-content: center;
-	font-family: "Oswald", sans-serif;
-	color: #333;
-	margin: 2rem auto;
-	width: 100%;
+  display: flex;
+  justify-content: center;
+  font-family: "Oswald", sans-serif;
+  color: #333;
+  margin: 2rem auto;
+  width: 100%;
 }
 
 .itemBox {
-	display: flex;
-	flex-direction: column;
-	width: 55%;
-	border-top: 1px solid rgb(209, 209, 209);
-	border-left: 1px solid rgb(209, 209, 209);
-	border-bottom: 1px solid rgb(209, 209, 209);
-	padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+  border-top: 1px solid rgb(209, 209, 209);
+  border-left: 1px solid rgb(209, 209, 209);
+  border-bottom: 1px solid rgb(209, 209, 209);
+  padding: 1rem;
 }
 
 .subtotalBox {
-	background-color: #00e1ff;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	div {
-		padding: 1rem 0.5rem;
-		width: 100%;
+  background-color: #00e1ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  div {
+    padding: 1rem 0.5rem;
+    width: 100%;
 
-		div {
-			display: flex;
-			width: 100%;
-			justify-content: space-between;
-		}
-	}
-	button {
-		border: none;
-		padding: 0.5rem;
-		margin: 0.5rem;
-		border-radius: 4px;
-		background-color: #fff;
-		width: 90%;
-		&:hover {
-			cursor: pointer;
-			background-color: rgb(245, 245, 245);
-		}
-	}
+    div {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+  button {
+    border: none;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border-radius: 4px;
+    background-color: #fff;
+    width: 90%;
+    &:hover {
+      cursor: pointer;
+      background-color: rgb(245, 245, 245);
+    }
+  }
+}
+@media (max-width: 600px) {
+  .cartContainer {
+    margin-top: 1rem;
+    border: none;
+  }
+  .cart {
+    margin: 0;
+    padding: 0.3rem;
+    border: none;
+  }
+  .itemBox {
+    border: 1px solid rgb(209, 209, 209);
+    width: 100%;
+  }
+  .checkoutBox {
+    flex-direction: column;
+    margin: 0.5rem auto;
+  }
 }

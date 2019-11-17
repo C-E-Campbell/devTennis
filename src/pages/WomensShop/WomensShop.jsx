@@ -14,7 +14,7 @@ const WomensShop = () => {
       </header>
       <section className="womensPage">
         <Header />
-        <div>
+        <div className="shop-heading">
           <h2>Shop Womens Styles</h2>
         </div>
         <div className="store-boxes">

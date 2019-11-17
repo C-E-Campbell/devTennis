@@ -1,69 +1,81 @@
 .stats-page {
-	position: relative;
+  position: relative;
 }
 .stats-container {
-	display: flex;
-	font-family: "Oswald", sans-serif;
-	position: relative;
+  display: flex;
+  font-family: "Oswald", sans-serif;
+  position: relative;
 }
 .stats-header {
-	height: 60px;
-	background-color: #00e1ff;
-	display: flex;
-	align-items: center;
-	font-family: "Oswald", sans-serif;
-	a {
-		padding-left: 1rem;
-		font-size: 1.5rem;
-		&:hover {
-			color: #fff;
-		}
-	}
+  height: 60px;
+  background-color: #00e1ff;
+  display: flex;
+  align-items: center;
+  font-family: "Oswald", sans-serif;
+  a {
+    padding-left: 1rem;
+    font-size: 1.5rem;
+    &:hover {
+      color: #fff;
+    }
+  }
 }
 
 .stat-links {
-	width: 25%;
+  width: 25%;
 
-	padding: 1rem;
-	background-color: rgb(255, 255, 255);
-	border-right: 1px solid #ccc;
-	h3 {
-		font-size: 3rem;
-	}
-	h4 {
-		font-size: 2rem;
-		margin: 1rem 0.5rem;
-		padding: 0.3rem;
-		border-radius: 4px;
-		&:hover {
-			background-color: rgb(209, 209, 209);
-			cursor: pointer;
-		}
-	}
+  padding: 1rem;
+  background-color: rgb(255, 255, 255);
+  border-right: 1px solid #ccc;
+  h3 {
+    font-size: 3rem;
+  }
+  h4 {
+    font-size: 2rem;
+    margin: 1rem 0.5rem;
+    padding: 0.3rem;
+    border-radius: 4px;
+    &:hover {
+      background-color: rgb(209, 209, 209);
+      cursor: pointer;
+    }
+  }
 }
 .stat-data {
-	width: 75%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
+  width: 75%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 
-	.data-container {
-		width: 60%;
-	}
+  .data-container {
+    width: 60%;
+  }
 }
 
 .myLoader {
-	width: 100%;
-	padding: 0;
+  width: 100%;
+  padding: 0;
 
-	div {
-		padding: 0;
-	}
+  div {
+    padding: 0;
+  }
 }
 .ui.segment.myLoader {
-	padding: 0;
-	margin: 0;
-	border: none;
-	border-radius: none;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: none;
+}
+@media (max-width: 600px) {
+  .stat-links {
+    padding: 0.2rem;
+    h3 {
+      font-size: 1.5rem;
+    }
+    h4 {
+      font-size: 1rem;
+      margin: 1rem 0rem;
+    }
+  }
 }

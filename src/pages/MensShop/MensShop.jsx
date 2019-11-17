@@ -14,7 +14,7 @@ const MensShop = () => {
       </header>
       <section>
         <Header />
-        <div>
+        <div className="shop-heading">
           <h2>Shop Mens Styles</h2>
         </div>
         <div className="store-boxes">
