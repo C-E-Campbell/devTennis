@@ -79,10 +79,9 @@ class Checkout extends Component {
   render() {
     if (this.state.complete)
       return (
-        <div>
+        <div className={styles.checkoutPage}>
           <BasicHeader />
           <h1>Purchase Complete</h1>
-          <Footer />
         </div>
       );
 
@@ -149,16 +148,17 @@ class Checkout extends Component {
             >
               Purchase
             </button>
-            <Footer />
           </div>
         ) : (
-          <div>
+          <div className={styles.checkoutPage1}>
             <BasicHeader />
             <h2>Your cart is empty. </h2>
-            <Link to="/">Return home</Link>
-            <Footer />
+            <Link className={styles.homeBtn} to="/">
+              Return home
+            </Link>
           </div>
         )}
+        <Footer />
       </div>
     );
   }

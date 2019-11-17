@@ -32,6 +32,8 @@
 
 .itemBox {
   display: flex;
+  margin: 0 auto;
+  align-items: center;
   flex-direction: column;
   width: 55%;
   border-top: 1px solid rgb(209, 209, 209);

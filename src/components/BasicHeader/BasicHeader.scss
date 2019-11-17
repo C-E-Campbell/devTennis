@@ -1,14 +1,25 @@
 header {
-	height: 60px;
-	background-color: #00e1ff;
-	display: flex;
-	align-items: center;
-	font-family: "Oswald", sans-serif;
-	a {
-		padding-left: 1rem;
-		font-size: 1.5rem;
-		&:hover {
-			color: #fff;
-		}
-	}
+  height: 60px;
+  background-color: #00e1ff;
+  display: flex;
+  align-items: center;
+  font-family: "Oswald", sans-serif;
+  a {
+    padding-left: 1rem;
+    font-size: 1.5rem;
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+.LogoBox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 500px;
+  flex-grow: 3;
+
+  img {
+    height: 50px;
+  }
 }

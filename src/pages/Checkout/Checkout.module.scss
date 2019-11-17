@@ -17,3 +17,18 @@ form {
     border-radius: 4px;
   }
 }
+.checkoutPage1 {
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  height: 90vh;
+  h2 {
+    margin-top: 2rem;
+    font-size: 2rem;
+  }
+  .homeBtn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin-top: 2rem;
+    background-color: #00e1ff;
+  }
+}

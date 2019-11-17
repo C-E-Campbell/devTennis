@@ -48,10 +48,16 @@
     margin: 0.5rem auto;
     justify-content: space-between;
     div {
-      margin: 0.2rem;
+      margin: 0.5rem;
     }
   }
   .productImg {
     margin: 0;
+  }
+  .quantityContainer {
+    min-width: 70px;
+    div {
+      margin: 0;
+    }
   }
 }
