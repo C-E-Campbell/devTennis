@@ -36,16 +36,16 @@
     }
 
     button {
+      background-color: #00e1ff;
+      color: #333;
       border-radius: 4px;
       padding: 0.5rem;
       font-size: 1.1rem;
       border: none;
-      background-color: rgb(255, 255, 255);
       color: rgb(32, 32, 32);
       cursor: pointer;
 
       &:hover {
-        background-color: #00e1ff;
         color: #fff;
       }
     }
