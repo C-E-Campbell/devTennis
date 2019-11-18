@@ -79,7 +79,7 @@ class Profile extends Component {
                         }}
                         placeholder="Enter New Email"
                       />
-                      <button>Update email</button>
+                      <button className="updateBtn">Update email</button>
                     </form>
                     <form
                       className="password-form"
@@ -108,7 +108,7 @@ class Profile extends Component {
                         type="password"
                         placeholder="Enter New Password"
                       />
-                      <button>Update Password</button>
+                      <button className="updateBtn">Update Password</button>
                     </form>
                   </div>
                 </section>

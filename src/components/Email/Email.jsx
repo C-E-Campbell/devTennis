@@ -1,6 +1,8 @@
 import React from "react";
 import "./Email.scss";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 class Email extends React.Component {
   state = {
     email: ""
@@ -12,6 +14,11 @@ class Email extends React.Component {
     this.setState({ email: "" });
   };
   render() {
+    toast.configure();
+    const notify = () =>
+      toast.success("Thanks, Check your email!", {
+        autoClose: 2000
+      });
     return (
       <div className="email">
         <div className="email-container">
@@ -21,6 +28,7 @@ class Email extends React.Component {
           <form
             onSubmit={async e => {
               e.preventDefault();
+              notify();
               await this.sendDiscount(this.state.email);
             }}
             className="form-box"

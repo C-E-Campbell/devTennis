@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Match from "../../components/Matches/Matches";
 import "./Stats.scss";
 import StatItem from "../../components/StatItem/StatItem";
 import { Link } from "react-router-dom";
@@ -12,7 +11,6 @@ export default class Stats extends Component {
       topMen: [],
       topDoublesMen: [],
       topDoublesWomen: [],
-      tourneySchedule: [],
       showWomen: false,
       showMen: false,
       showDoublesMen: false,
@@ -41,35 +39,6 @@ export default class Stats extends Component {
       loading: false
     });
   }
-
-  getTourney = async () => {
-    if (this.state.tourneySchedule.length) {
-      this.setState({
-        showWomen: false,
-        showMen: false,
-        showDoublesMen: false,
-        showDoublesWomen: false,
-        showTourney: true,
-        loading: false
-      });
-    } else {
-      this.setState({
-        loading: true
-      });
-      const tourneyResults = await axios.get(
-        "https://cors-anywhere.herokuapp.com/http://api.sportradar.us/tennis-t2/en/schedules/live/schedule.json?api_key=pfm8bdbh8nq9ukgfuba68wdd"
-      );
-      this.setState({
-        tourneySchedule: tourneyResults.data.sport_events,
-        showWomen: false,
-        showMen: false,
-        showDoublesMen: false,
-        showDoublesWomen: false,
-        showTourney: true,
-        loading: false
-      });
-    }
-  };
 
   render() {
     const mappedWomens = this.state.topWomen.map(player => {
@@ -121,19 +90,6 @@ export default class Stats extends Component {
       );
     });
 
-    const mappedTournies = this.state.tourneySchedule.map((match, index) => {
-      return (
-        <Match
-          key={index}
-          name={match.season.name}
-          start={match.season.start_date}
-          end={match.season.end_date}
-          country={match.venue.country_name}
-          city={match.venue.city_name}
-        />
-      );
-    });
-
     return (
       <div className="stats-page">
         <header className="stats-header">
@@ -141,7 +97,7 @@ export default class Stats extends Component {
         </header>
         <div className="stats-container">
           <div className="stat-links">
-            <h3>Stats and Matches</h3>
+            <h3>Player Rankings</h3>
             <h4
               onClick={() => {
                 this.setState({
@@ -194,13 +150,6 @@ export default class Stats extends Component {
             >
               Doubles Rankings Men
             </h4>
-            <h4
-              onClick={() => {
-                this.getTourney();
-              }}
-            >
-              Tournament Schedule
-            </h4>
           </div>
           {this.state.loading ? (
             <div className="ui segment myLoader">
@@ -215,7 +164,6 @@ export default class Stats extends Component {
               {this.state.showMen ? mappedMens : null}
               {this.state.showDoublesMen ? mappedDoublesMens : null}
               {this.state.showDoublesWomen ? mappedDoublesWomens : null}
-              {this.state.showTourney ? mappedTournies : null}
             </div>
           )}
         </div>

@@ -2,7 +2,6 @@
   background-color: #00e1ff;
   color: #fff;
   font-family: "Oswald", sans-serif;
-  padding: 1rem;
 
   button {
     background-color: #fff;
@@ -36,6 +35,8 @@
 
 .form-box {
   display: flex;
+  flex-direction: row;
+  padding: 0;
   width: 50%;
   justify-content: center;
   align-items: center;
@@ -45,7 +46,7 @@
     border: none;
     margin-right: 2em;
     padding: 0.3em;
-    width: 100%;
+    width: 80%;
     font-size: 1rem;
   }
 

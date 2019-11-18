@@ -1,46 +1,52 @@
 .profile-section {
-	min-height: 80vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .form-section {
-	width: 60%;
-	margin: 0 auto;
-	font-family: "Oswald", sans-serif;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	img {
-		margin: 0 auto;
-	}
-	h2 {
-		margin: 1rem 0;
-		font-size: 1.2rem;
-	}
+  width: 60%;
+  margin: 0 auto;
+  font-family: "Oswald", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img {
+    margin: 0 auto;
+  }
+  h2 {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+  }
 
-	form {
-		display: flex;
-		flex-direction: column;
-		margin: 1rem 0;
-		input {
-			border: 1px solid #ccc;
-			border-radius: 2px;
-			padding: 0.5rem 1rem;
-			margin: 0.2rem;
-		}
-		button {
-			background-color: transparent;
-			border: 1px solid #ccc;
-			color: #333;
-			margin-top: 0.5rem;
-			padding: 0.5rem;
-			background-color: rgba(0, 204, 255, 0.253);
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 1rem 0;
+    input {
+      border: 1px solid #333;
+      border-radius: 2px;
+      padding: 0.5rem 1rem;
+      margin: 0.2rem;
+      width: 50%;
+    }
+    .updateBtn {
+      background-color: transparent;
+      border: 1px solid #333;
+      color: #333;
+      margin-top: 0.5rem;
+      padding: 0.5rem;
+      width: 50%;
+      background-color: rgba(255, 255, 255, 0.87);
+      transition: background-color 0.3s;
 
-			&:hover {
-				cursor: pointer;
-				background-color: rgba(0, 204, 255, 0.349);
-			}
-		}
-	}
+      &:hover {
+        cursor: pointer;
+        color: #fff;
+        background-color: rgb(80, 80, 80);
+      }
+    }
+  }
 }
