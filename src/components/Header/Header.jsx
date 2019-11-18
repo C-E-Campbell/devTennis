@@ -9,7 +9,8 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cartItems: null
+      cartItems: null,
+      mobileNav: false
     };
   }
 
@@ -33,9 +34,9 @@ class Header extends Component {
             <Link to="/gear">Gear</Link>
           </div>
 
-          <div>
+          <div className={styles.hideThisAtMobile}>
             {this.props.user.currentUser ? (
-              <div className="ui compact menu">
+              <div className="ui compact menu ">
                 <div className="ui simple dropdown item">
                   <div>{`Welcome, ${this.props.user.currentUser.email}`}</div>
 
@@ -43,6 +44,7 @@ class Header extends Component {
                   <div className="menu">
                     <div
                       onClick={() => {
+                        this.setState({ mobileNav: false });
                         this.props.history.push(
                           `/profile/${this.props.user.currentUser.id}`
                         );
@@ -53,6 +55,7 @@ class Header extends Component {
                     </div>
                     <div
                       onClick={() => {
+                        this.setState({ mobileNav: false });
                         this.props.history.push(
                           `/profile/${this.props.user.currentUser.id}`
                         );
@@ -63,6 +66,7 @@ class Header extends Component {
                     </div>
                     <div
                       onClick={() => {
+                        this.setState({ mobileNav: false });
                         this.props.history.push(
                           `/profile/${this.props.user.currentUser.id}`
                         );
@@ -76,11 +80,62 @@ class Header extends Component {
               </div>
             ) : null}
           </div>
+          <div>
+            {this.state.mobileNav ? (
+              <div className={styles.mobileNav}>
+                <div className={styles.second}></div>
+                <div className={styles.first}>
+                  <i
+                    onClick={() => this.setState({ mobileNav: false })}
+                    className="fas fa-times fa-2x"
+                  ></i>
+                  <div
+                    onClick={() => {
+                      this.props.history.push(
+                        `/profile/${this.props.user.currentUser.id}`
+                      );
+                    }}
+                    className="item"
+                  >
+                    Update Account Info
+                  </div>
+                  <div
+                    onClick={() => {
+                      this.props.history.push(
+                        `/profile/${this.props.user.currentUser.id}`
+                      );
+                    }}
+                    className="item"
+                  >
+                    Favorites
+                  </div>
+                  <div
+                    onClick={() => {
+                      this.props.history.push(
+                        `/profile/${this.props.user.currentUser.id}`
+                      );
+                    }}
+                    className="item"
+                  >
+                    Purchase History
+                  </div>
+                </div>
+              </div>
+            ) : null}
 
-          <div className={styles.CartBox}>
-            <Link to="/cart">
-              <img src={cartIcon} alt="cart" />
-            </Link>
+            <div className={styles.CartBox}>
+              <Link to="/cart">
+                <img src={cartIcon} alt="cart" />
+              </Link>
+              {this.props.user.currentUser ? (
+                <i
+                  className="fas fa-bars fa-2x"
+                  onClick={() =>
+                    this.setState({ mobileNav: !this.state.mobileNav })
+                  }
+                ></i>
+              ) : null}
+            </div>
           </div>
         </nav>
       </div>

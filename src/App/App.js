@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.scss";
 import { Elements, StripeProvider } from "react-stripe-elements";
-
 import { Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import MensShop from "../pages/MensShop/MensShop";
@@ -21,41 +20,38 @@ import Profile from "../pages/Profile/Profile";
 import Checkout from "../pages/Checkout/Checkout";
 
 function App(props) {
-	return (
-		<StripeProvider apiKey='pk_test_kCcNZj9q07j8tbB9lZrbRVTi00vY5BNdjM'>
-			<Switch>
-				<Route component={Home} exact path={"/"} />
-				<Route component={Register} path={"/register"} />
-				<Route component={Login} path={"/signin"} />
-				<Route component={Stats} path={"/stats"} />
-				<Route component={WomensShop} path={"/womens"} />
-				<Route component={MensShop} path={"/mens"} />
-				<Route component={MensClothing} path={"/mensclothing"} />
-				<Route component={MensShoes} path={"/mensshoes"} />
-				<Route component={WomensShoes} path={"/womensshoes"} />
-				<Route component={WomensClothing} path={"/womensclothing"} />
-				<Route component={Gear} path={"/gear"} />
-				<Route component={InventoryItem} path={"/store/:id"} />
-				<Route component={Profile} path={"/profile/:id"} />
-				<Route render={() => <Cart cart={props.items.cart} />} path={"/cart"} />
-				<Route
-					render={() => (
-						<Elements>
-							<Checkout />
-						</Elements>
-					)}
-					path={"/checkout"}
-				/>
-			</Switch>
-		</StripeProvider>
-	);
+  return (
+    <Switch>
+      <Route component={Home} exact path={"/"} />
+      <Route component={Register} path={"/register"} />
+      <Route component={Login} path={"/signin"} />
+      <Route component={Stats} path={"/stats"} />
+      <Route component={WomensShop} path={"/womens"} />
+      <Route component={MensShop} path={"/mens"} />
+      <Route component={MensClothing} path={"/mensclothing"} />
+      <Route component={MensShoes} path={"/mensshoes"} />
+      <Route component={WomensShoes} path={"/womensshoes"} />
+      <Route component={WomensClothing} path={"/womensclothing"} />
+      <Route component={Gear} path={"/gear"} />
+      <Route component={InventoryItem} path={"/store/:id"} />
+      <Route component={Profile} path={"/profile/:id"} />
+      <Route render={() => <Cart cart={props.items.cart} />} path={"/cart"} />
+      <Route
+        render={() => (
+          <StripeProvider apiKey="pk_test_kCcNZj9q07j8tbB9lZrbRVTi00vY5BNdjM">
+            <Elements>
+              <Checkout />
+            </Elements>
+          </StripeProvider>
+        )}
+        path={"/checkout"}
+      />
+    </Switch>
+  );
 }
 const mapStateToProps = state => {
-	return {
-		items: state.items
-	};
+  return {
+    items: state.items
+  };
 };
-export default connect(
-	mapStateToProps,
-	null
-)(App);
+export default connect(mapStateToProps, null)(App);

@@ -140,8 +140,9 @@ class Checkout extends Component {
                 type="text"
                 placeholder="Zip"
               />
+              <CardElement className={styles.work} />
             </form>
-            <CardElement className={styles.cardElement} />
+
             <button
               className={styles.purchaseBtn}
               onClick={() => {
