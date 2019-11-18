@@ -57,7 +57,7 @@ export default class Stats extends Component {
         loading: true
       });
       const tourneyResults = await axios.get(
-        "https://cors-anywhere.herokuapp.com/http://api.sportradar.us/tennis-t2/en/schedules/live/schedule.json?api_key=29n49vy68mxscutdge8ykpax"
+        "https://cors-anywhere.herokuapp.com/http://api.sportradar.us/tennis-t2/en/schedules/live/schedule.json?api_key=pfm8bdbh8nq9ukgfuba68wdd"
       );
       this.setState({
         tourneySchedule: tourneyResults.data.sport_events,
