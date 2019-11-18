@@ -18,8 +18,11 @@ import InventoryItem from "../components/InventoryItem/InventoryItem";
 import Cart from "../pages/Cart/Cart";
 import Profile from "../pages/Profile/Profile";
 import Checkout from "../pages/Checkout/Checkout";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App(props) {
+  toast.configure();
   return (
     <Switch>
       <Route component={Home} exact path={"/"} />

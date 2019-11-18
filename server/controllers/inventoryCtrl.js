@@ -66,6 +66,10 @@ module.exports = {
   addfavorites: async (req, res) => {
     const db = req.app.get("db");
     const { user_id, item_id } = req.body;
-    db.add_to_favorites({ user_id, item_id });
+    try {
+      await db.add_to_favorites([user_id, item_id]);
+    } catch (err) {
+      console.log(err);
+    }
   }
 };

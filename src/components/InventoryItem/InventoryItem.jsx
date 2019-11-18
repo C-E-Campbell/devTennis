@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import styles from "./InventoryItem.module.scss";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import BasicHeader from "../BasicHeader/BasicHeader";
 import { getCart, addOneToCart } from "../../redux/actions";
 import axios from "axios";
@@ -58,6 +60,11 @@ class InventoryItem extends React.Component {
   };
 
   render() {
+    toast.configure();
+    const notify = () =>
+      toast.success("Added to favorites!", {
+        autoClose: 2000
+      });
     return (
       <div>
         <BasicHeader />
@@ -85,10 +92,15 @@ class InventoryItem extends React.Component {
 
             <button
               onClick={() => {
-                this.addToFav(
-                  this.props.user.currentUser.id,
-                  this.state.singleItem.id
-                );
+                if (!this.props.user.currentUser) {
+                  alert("Must sign in to use favorites");
+                } else {
+                  this.addToFav(
+                    this.props.user.currentUser.id,
+                    this.state.singleItem.item_id
+                  );
+                  notify();
+                }
               }}
             >
               Add to Favorites
