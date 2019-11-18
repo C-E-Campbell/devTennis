@@ -71,5 +71,14 @@ module.exports = {
     } catch (err) {
       console.log(err);
     }
+  },
+  deleteFavorite: async (req, res) => {
+    const db = req.app.get("db");
+    const { user_id, item_id } = req.body;
+    try {
+      db.delete_item_from_favorite([user_id, item_id]);
+    } catch (err) {
+      console.log(err);
+    }
   }
 };

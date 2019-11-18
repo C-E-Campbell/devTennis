@@ -18,6 +18,7 @@ import InventoryItem from "../components/InventoryItem/InventoryItem";
 import Cart from "../pages/Cart/Cart";
 import Profile from "../pages/Profile/Profile";
 import Checkout from "../pages/Checkout/Checkout";
+import Favorites from "../pages/Favorites/Favorites";
 
 function App(props) {
   return (
@@ -46,6 +47,7 @@ function App(props) {
         )}
         path={"/checkout"}
       />
+      <Route component={Favorites} to="/favorites" />
     </Switch>
   );
 }

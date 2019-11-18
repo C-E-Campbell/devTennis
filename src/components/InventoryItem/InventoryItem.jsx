@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import styles from "./InventoryItem.module.scss";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BasicHeader from "../BasicHeader/BasicHeader";
 import { getCart, addOneToCart } from "../../redux/actions";

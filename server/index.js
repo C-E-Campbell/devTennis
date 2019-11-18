@@ -45,6 +45,7 @@ app.post("/api/addfavorite", inventory.addfavorites);
 app.put("/api/updateEmail", user.updateEmail);
 app.put("/api/updatePass", user.updatePass);
 app.put("/api/decreasecart", inventory.decreaseCart);
+app.put("/api/deletefavorite", inventory.deleteFavorite);
 
 app.delete("/api/logout", auth.logout);
 app.delete("/api/deletecartitem/:id/:user", inventory.deleteItem);
