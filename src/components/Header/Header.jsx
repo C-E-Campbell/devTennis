@@ -82,7 +82,7 @@ class Header extends Component {
                         `/profile/${this.props.user.currentUser.id}`
                       );
                     }}
-                    className="item"
+                    className={styles.item}
                   >
                     Update Account Info
                   </div>
@@ -90,7 +90,7 @@ class Header extends Component {
                     onClick={() => {
                       this.props.history.push(`/favorites`);
                     }}
-                    className="item"
+                    className={styles.item}
                   >
                     Favorites
                   </div>

@@ -6,6 +6,7 @@ import userPhoto from "../../assets/userPhoto.png";
 import { updateEmail, logout, login } from "../../redux/actions";
 import axios from "axios";
 import BasicHeader from "../../components/BasicHeader/BasicHeader";
+import Login from "../../pages/Login/Login";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 class Profile extends Component {
@@ -42,15 +43,16 @@ class Profile extends Component {
       <div>
         {!this.props.user.currentUser ? (
           <div>
-            <h3>Login</h3>
-            <Link to="/signin">GO TO LOGIN</Link>
+            <Login />
           </div>
         ) : (
           <div>
             {this.props.user.currentUser.id !==
             Number(this.props.match.params.id) ? (
               <div>
-                <h2>This is not your profile</h2>
+                <div>
+                  <Login />
+                </div>
               </div>
             ) : (
               <div>

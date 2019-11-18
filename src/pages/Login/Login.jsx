@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Login.scss";
 import { login } from "../../redux/actions";
 import { connect } from "react-redux";
+import Footer from "../../components/Footer/Footer";
 import BasicHeader from "../../components/BasicHeader/BasicHeader";
 import axios from "axios";
 
@@ -69,6 +70,7 @@ class Login extends Component {
               <button>Login</button>
             </form>
           </div>
+          <Footer />
         </section>
       </div>
     );

@@ -78,6 +78,16 @@
     .hideThisAtMobile {
       display: none;
     }
+    .item {
+      width: 80%;
+      text-align: center;
+      border-bottom: 2px solid #fff;
+      padding-bottom: 0.5rem;
+      &:hover {
+        cursor: pointer;
+        border-bottom: 2px solid rgba(24, 167, 192, 0.904);
+      }
+    }
     .CartBox {
       i {
         display: inherit;
@@ -128,6 +138,7 @@
     .hideThisAtMobile {
       display: none;
     }
+
     .LogoBox {
       padding-left: 1rem;
     }

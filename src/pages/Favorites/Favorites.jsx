@@ -91,7 +91,13 @@ class Favorites extends React.Component {
       <div>
         <BasicHeader />
         <Header />
-        <div className={styles.favContainer}>{mappeddata}</div>
+        {this.state.data.length > 0 ? (
+          <div className={styles.favContainer}>{mappeddata}</div>
+        ) : (
+          <div className={styles.favContainer}>
+            <h1>No Favorites Yet</h1>
+          </div>
+        )}
       </div>
     );
   }

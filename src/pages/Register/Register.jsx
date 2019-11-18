@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Footer from "../../components/Footer/Footer";
 import { register } from "../../redux/actions";
 import "./Register.scss";
 import { Link } from "react-router-dom";
@@ -69,6 +70,7 @@ class Register extends Component {
             <button>Register</button>
           </form>
         </div>
+        <Footer />
       </section>
     );
   }
