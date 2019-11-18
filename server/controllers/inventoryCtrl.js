@@ -49,5 +49,23 @@ module.exports = {
     const { user_id } = req.params;
     await db.delete_all_items_for_user([user_id]);
     res.status(200).send("everything deleted");
+  },
+  favorites: async (req, res) => {
+    const db = req.app.get("db");
+    const { id } = req.params;
+    try {
+      const results = await db.get_favorites();
+      const myFav = results.filter(fav => {
+        return fav.user_id === Number(id);
+      });
+      res.status(200).send(myFav);
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  addFavorites: async (req, res) => {
+    const db = req.app.get("db");
+    const { user_id, item_id } = req.body;
+    db.add_to_favorites({ user_id, item_id });
   }
 };

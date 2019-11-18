@@ -64,17 +64,6 @@ class Header extends Component {
                     >
                       Favorites
                     </div>
-                    <div
-                      onClick={() => {
-                        this.setState({ mobileNav: false });
-                        this.props.history.push(
-                          `/profile/${this.props.user.currentUser.id}`
-                        );
-                      }}
-                      className="item"
-                    >
-                      Purchase History
-                    </div>
                   </div>
                 </div>
               </div>
@@ -108,16 +97,6 @@ class Header extends Component {
                     className="item"
                   >
                     Favorites
-                  </div>
-                  <div
-                    onClick={() => {
-                      this.props.history.push(
-                        `/profile/${this.props.user.currentUser.id}`
-                      );
-                    }}
-                    className="item"
-                  >
-                    Purchase History
                   </div>
                 </div>
               </div>

@@ -26,6 +26,13 @@ class InventoryItem extends React.Component {
     }
   }
 
+  addToFav = (id, item) => {
+    axios.post("/api/addfavorite", {
+      user_id: id,
+      item_id: item
+    });
+  };
+
   addToCart = async () => {
     if (this.props.user.currentUser) {
       axios.post("/api/addtocart", {
@@ -76,7 +83,16 @@ class InventoryItem extends React.Component {
               Add to Cart
             </button>
 
-            <button>Add to Favorites</button>
+            <button
+              onClick={() => {
+                this.addToFav(
+                  this.props.user.currentUser.id,
+                  this.state.singleItem.id
+                );
+              }}
+            >
+              Add to Favorites
+            </button>
           </div>
         </div>
         <Footer />

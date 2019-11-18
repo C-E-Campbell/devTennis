@@ -32,6 +32,7 @@ app.use(
 app.get("/api/test", test.test);
 app.get("/api/inventory", inventory.getAllInventory);
 app.get("/api/getcart/:id", inventory.getCart);
+app.get("/api/getfavorites/:id", inventory.favorites);
 
 app.post("/api/register", auth.register);
 app.post("/api/login", auth.login);
@@ -39,6 +40,7 @@ app.post("/api/addtocart", inventory.addToCart);
 app.post("/api/charge", util.sendPayment);
 app.post("/api/discount", util.sendDiscount);
 app.post("/api/reciept", util.sendReceipt);
+app.post("/api/addfavorite", inventory.addfavorites);
 
 app.put("/api/updateEmail", user.updateEmail);
 app.put("/api/updatePass", user.updatePass);
