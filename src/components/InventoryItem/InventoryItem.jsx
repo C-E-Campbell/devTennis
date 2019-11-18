@@ -63,7 +63,7 @@ class InventoryItem extends React.Component {
     toast.configure();
     const notify = () =>
       toast.success("Added to favorites!", {
-        autoClose: 2000
+        autoClose: 2500
       });
     return (
       <div>
