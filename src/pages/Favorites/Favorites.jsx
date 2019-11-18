@@ -62,8 +62,9 @@ class Favorites extends React.Component {
         <div key={item.item_id}>
           <img className={styles.img} src={item.image} alt="favorite_item" />
           <h1>{item.name}</h1>
-          <p>{item.description}</p>
+          <p className={styles.description}>{item.description}</p>
           <button
+            className={styles.button}
             onClick={() => {
               this.addToCart(
                 item.item_id,
@@ -76,6 +77,7 @@ class Favorites extends React.Component {
             Add To Cart
           </button>
           <button
+            className={styles.button}
             onClick={() => {
               this.deleteItem(this.props.user.currentUser.id, item.item_id);
             }}
@@ -89,7 +91,7 @@ class Favorites extends React.Component {
       <div>
         <BasicHeader />
         <Header />
-        <div>{mappeddata}</div>
+        <div className={styles.favContainer}>{mappeddata}</div>
       </div>
     );
   }

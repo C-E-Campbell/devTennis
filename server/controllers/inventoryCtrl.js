@@ -67,7 +67,10 @@ module.exports = {
     const db = req.app.get("db");
     const { user_id, item_id } = req.body;
     try {
-      await db.add_to_favorites([user_id, item_id]);
+      const result = await db.check_fav_for_item([item_id, user_id]);
+      if (!result[0]) {
+        await db.add_to_favorites([user_id, item_id]);
+      }
     } catch (err) {
       console.log(err);
     }

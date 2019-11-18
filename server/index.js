@@ -50,4 +50,5 @@ app.put("/api/deletefavorite", inventory.deleteFavorite);
 app.delete("/api/logout", auth.logout);
 app.delete("/api/deletecartitem/:id/:user", inventory.deleteItem);
 app.delete("/api/deletemyitems/:user_id", inventory.emptyAfterPurchase);
+
 app.listen(PORT, () => console.log(`server running on ${PORT}`));
