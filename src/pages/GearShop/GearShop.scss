@@ -27,6 +27,26 @@
     }
   }
 }
+@media (max-width: 1600px) and (max-height: 800px) {
+  .gearHero {
+    h2 {
+      top: 30%;
+      left: 50%;
+      font-size: 4rem;
+      width: 35%;
+    }
+  }
+}
+@media (max-width: 1200px) and (max-height: 800px) {
+  .gearHero {
+    h2 {
+      top: 30%;
+      left: 50%;
+      font-size: 3rem;
+      width: 35%;
+    }
+  }
+}
 
 @media (max-width: 800px) {
   .gearHero {
