@@ -46,7 +46,17 @@ module.exports = {
     res.send("it worked");
   },
   sendReceipt: async (req, res) => {
-    const { sendTo, first, last, address, state, city, zip } = req.body;
+    const {
+      sendTo,
+      first,
+      last,
+      address,
+      state,
+      city,
+      zip,
+      amount,
+      cart
+    } = req.body;
 
     let transporter = nodemailer.createTransport({
       service: "Gmail",
@@ -55,19 +65,31 @@ module.exports = {
         pass: process.env.NodePass
       }
     });
-
+    const cartStuff = cart.map(item => {
+      return `<div>${item.name}</div>`;
+    });
     await transporter.sendMail({
       from: process.env.NodeEmail,
       to: sendTo,
       subject: "Your DevTennis Reciept: Thank you for your purchase!",
       text: "Hello",
       html: `<div>
-    		<h2>Hi, ${first}. Here is your order</h2>
-    		<div>
+    		<h2>Hi, ${first}. Here is your receipt</h2>
+    		
     		<div>To: ${first} ${last}</div>
-    		<div>Address: ${address}, ${city}, ${state}, ${zip}</div>
-    		<div>Cart here:</div>
-    		</div>
+        <div>
+        <div>Address:</div>
+          
+            <p>${address}</p>
+            <p>${city}</p>
+            <p>${city}</p>
+            <p>${state}</p>
+            <p>${zip}</p>
+         
+        </div>
+        <div>Total Amount ${amount.toFixed(2)}</div>
+        
+    		
     	  </div>`
     });
     res.send("it worked");

@@ -51,6 +51,8 @@ class Checkout extends Component {
         city: this.state.city,
         state: this.state.state,
         zip: this.state.zip,
+        amount: this.props.items.cartTotal / 100,
+        cart: this.props.items.cart,
         sendTo: this.props.user.currentUser.email
       });
     } else {
@@ -61,6 +63,8 @@ class Checkout extends Component {
         city: this.state.city,
         state: this.state.state,
         zip: this.state.zip,
+        cart: this.props.items.cart,
+        amount: this.props.items.cartTotal / 100,
         sendTo: this.state.email
       });
     }

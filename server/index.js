@@ -3,7 +3,6 @@ const { PORT, SESSION_STRING, CONNECTION_STRING } = process.env;
 const express = require("express");
 const massive = require("massive");
 const session = require("express-session");
-
 const test = require("./controllers/testCtrl");
 const inventory = require("./controllers/inventoryCtrl");
 const auth = require("./controllers/authCtrl");
