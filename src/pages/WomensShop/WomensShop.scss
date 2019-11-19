@@ -98,7 +98,39 @@
     }
   }
 }
+
+@media (max-width: 1200px) {
+  .shop-hero {
+    h2 {
+      top: 30%;
+      left: 10%;
+      font-size: 4rem;
+      width: 45%;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .shop-hero {
+    h2 {
+      top: 30%;
+      left: 10%;
+      font-size: 4rem;
+      width: 45%;
+    }
+  }
+}
+
 @media (max-width: 601px) {
+  .shop-hero {
+    h2 {
+      top: 30%;
+      left: 10%;
+      font-size: 3rem;
+      width: 60%;
+    }
+  }
+
   .store-boxes {
     flex-direction: column;
     width: 100%;
@@ -118,50 +150,5 @@
         height: 300px;
       }
     }
-  }
-}
-
-@keyframes flash {
-  0% {
-    color: rgb(252, 106, 131);
-  }
-  50% {
-    color: #fff;
-  }
-  100% {
-    color: rgb(252, 106, 131);
-  }
-}
-@keyframes flash1 {
-  0% {
-    color: #00e1ff;
-  }
-  50% {
-    color: #fff;
-  }
-  100% {
-    color: #00e1ff;
-  }
-}
-@keyframes flash2 {
-  0% {
-    color: lime;
-  }
-  50% {
-    color: #fff;
-  }
-  100% {
-    color: lime;
-  }
-}
-
-@keyframes drive {
-  0% {
-    opacity: 0;
-    right: -100px;
-  }
-  100% {
-    opacity: 1;
-    left: 3000px;
   }
 }

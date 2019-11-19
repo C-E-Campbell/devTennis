@@ -1,0 +1,51 @@
+.gearHero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)),
+    url("../../assets/Gear.jpg");
+  height: 50vh;
+  width: 100%;
+  background-position: center;
+  position: relative;
+  background-size: cover;
+  h2 {
+    position: absolute;
+    color: #00e1ff;
+    top: 30%;
+    left: 40%;
+    font-size: 5rem;
+    font-family: "Oswald", sans-serif;
+    text-shadow: 2px 2px 3px #000;
+    width: 40%;
+  }
+}
+@media (max-width: 970px) {
+  .gearHero {
+    h2 {
+      top: 30%;
+      left: 50%;
+      font-size: 4rem;
+      width: 45%;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .gearHero {
+    h2 {
+      top: 30%;
+      left: 50%;
+      font-size: 3rem;
+      width: 45%;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .gearHero {
+    h2 {
+      top: 10%;
+      left: 40%;
+      font-size: 3rem;
+      width: 50%;
+    }
+  }
+}

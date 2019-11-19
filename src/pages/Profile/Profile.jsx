@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import "./Profile.scss";
 import userPhoto from "../../assets/userPhoto.png";
 import { updateEmail, logout, login } from "../../redux/actions";

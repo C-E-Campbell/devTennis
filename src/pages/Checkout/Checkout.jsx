@@ -83,7 +83,7 @@ class Checkout extends Component {
   }
 
   render() {
-    const { first, last, city, state, zip, address, email } = this.state;
+    const { first, last, city, state, zip, address } = this.state;
     if (this.state.complete)
       return (
         <div className={styles.checkoutPage1}>
