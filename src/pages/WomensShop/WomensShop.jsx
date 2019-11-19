@@ -11,8 +11,12 @@ const WomensShop = () => {
   return (
     <div>
       <BasicHeader />
+
       <section className="womensPage">
         <Header />
+        <div className="shop-hero">
+          <h2>Stylin' On Every Serve</h2>
+        </div>
         <div className="shop-heading">
           <h2>Shop Womens Styles</h2>
         </div>

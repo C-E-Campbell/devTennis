@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import clothing from "../../assets/menClothing.jpg";
 import Shoe from "../../assets/menShoe.jpg";
 import Footer from "../../components/Footer/Footer";
+import "./MensShops.scss";
 
 const MensShop = () => {
   return (
@@ -12,6 +13,9 @@ const MensShop = () => {
       <BasicHeader />
       <section>
         <Header />
+        <div className="menHero">
+          <h2>Wear Your Confidence On The Court</h2>
+        </div>
         <div className="shop-heading">
           <h2>Shop Mens Styles</h2>
         </div>

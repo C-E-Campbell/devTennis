@@ -1,18 +1,19 @@
 .shop-hero {
-  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.404), rgba(0, 0, 0, 0.39)),
+    url("../../assets/hero.jpg");
+  height: 50vh;
   width: 100%;
-  margin: 0 auto;
-  background: linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.623)),
-    url("../../assets/joshpicc.jpg");
+  background-position: center;
   background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 2rem;
+  position: relative;
 
   h2 {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 30%;
     font-size: 5rem;
-    color: #fff;
+    color: #00e1ff;
     font-family: "Oswald", sans-serif;
     text-shadow: 2px 2px 3px #000;
   }
@@ -117,5 +118,50 @@
         height: 300px;
       }
     }
+  }
+}
+
+@keyframes flash {
+  0% {
+    color: rgb(252, 106, 131);
+  }
+  50% {
+    color: #fff;
+  }
+  100% {
+    color: rgb(252, 106, 131);
+  }
+}
+@keyframes flash1 {
+  0% {
+    color: #00e1ff;
+  }
+  50% {
+    color: #fff;
+  }
+  100% {
+    color: #00e1ff;
+  }
+}
+@keyframes flash2 {
+  0% {
+    color: lime;
+  }
+  50% {
+    color: #fff;
+  }
+  100% {
+    color: lime;
+  }
+}
+
+@keyframes drive {
+  0% {
+    opacity: 0;
+    right: -100px;
+  }
+  100% {
+    opacity: 1;
+    left: 3000px;
   }
 }

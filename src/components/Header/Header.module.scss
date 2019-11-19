@@ -137,14 +137,41 @@
     }
   }
 }
+@media (max-width: 800px) {
+  .MainNav {
+    .hideThisAtMobile {
+      display: none;
+    }
+    .LinkBox {
+      max-width: 400px;
+      a {
+        font-size: 1.2rem;
+      }
+    }
+    .LogoBox {
+      padding-left: 1rem;
+      a {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
 @media (max-width: 601px) {
   .MainNav {
     .hideThisAtMobile {
       display: none;
     }
-
+    .LinkBox {
+      max-width: 200px;
+      a {
+        font-size: 1rem;
+      }
+    }
     .LogoBox {
       padding-left: 1rem;
+      a {
+        font-size: 1rem;
+      }
     }
   }
 }

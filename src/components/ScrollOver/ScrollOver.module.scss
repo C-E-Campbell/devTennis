@@ -16,6 +16,28 @@
     font-weight: 700;
   }
 }
+@media (max-width: 1250px) {
+  .scrollOver {
+    background-position: top;
+    height: 600px;
+    margin: 0 auto;
+    .heading {
+      text-align: center;
+      font-size: 5rem;
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .scrollOver {
+    background-position: top;
+    height: 600px;
+    margin: 0 auto;
+    .heading {
+      text-align: center;
+      font-size: 5rem;
+    }
+  }
+}
 @media (max-width: 601px) {
   .scrollOver {
     background-position: top;

@@ -23,7 +23,7 @@ class Email extends React.Component {
       <div className="email">
         <div className="email-container">
           <p className="email-text">
-            Sign up and receive <span>15% OFF</span> !
+            Sign up and receive <span>15% OFF</span>
           </p>
           <form
             onSubmit={async e => {

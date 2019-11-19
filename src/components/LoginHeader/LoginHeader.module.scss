@@ -42,9 +42,25 @@
   }
 }
 
+@media (max-width: 800px) {
+  .LoginNav {
+    .LoginBox {
+      font-size: 1.2rem;
+      width: 100%;
+    }
+    .LogoBox {
+      height: 30px;
+
+      img {
+        display: none;
+      }
+    }
+  }
+}
 @media (max-width: 601px) {
   .LoginNav {
     .LoginBox {
+      font-size: 1rem;
       width: 100%;
     }
     .LogoBox {

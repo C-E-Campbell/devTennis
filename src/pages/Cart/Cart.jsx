@@ -119,6 +119,7 @@ class Cart extends Component {
   };
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.getCustomerCart();
     if (this.props.items.discountApplied) {
       this.setState({ discount: "15%_MoreHappy!" });
