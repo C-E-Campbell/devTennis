@@ -134,7 +134,9 @@ class Cart extends Component {
         <div className={styles.cartContainer}>
           <div className={styles.cart}>
             <h2>Your Cart:</h2>
-            <Link to="/gear">Continue Shopping</Link>
+            <Link className={styles.keepShoppingBtn} to="/gear">
+              Continue Shopping
+            </Link>
             <div className={styles.checkoutBox}>
               {this.props.items.cart[0] ? (
                 <div className={styles.itemBox}>{this.state.cartItems}</div>
@@ -164,6 +166,7 @@ class Cart extends Component {
                   </div>
                   <div>
                     <form
+                      className={styles.subTotalForm}
                       onSubmit={e => {
                         e.preventDefault();
                         if (!this.state.discountApplied) {

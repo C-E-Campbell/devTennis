@@ -29,7 +29,7 @@ class LoginHeader extends React.Component {
         {/* this ternary switches between signin/register & logout links based on if there is a user */}
         {!this.props.currentUser ? (
           <div className={style.LoginBox}>
-            <Link to="/stats">STATS & MATCHES</Link>
+            <Link to="/stats">PLAYER STATS</Link>
             <Link to="/signin">Sign In</Link>
             <Link to="/register">Register</Link>
           </div>

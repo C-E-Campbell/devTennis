@@ -61,7 +61,7 @@ class Profile extends Component {
                 <section className="profile-section">
                   <div className="form-section">
                     <img src={userPhoto} alt="user-default" />
-
+                    <h2>Edit Account</h2>
                     <form
                       onSubmit={e => {
                         e.preventDefault();

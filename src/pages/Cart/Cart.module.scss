@@ -1,27 +1,38 @@
 .cartContainer {
   margin: 0 auto;
-  max-width: 1060px;
-  width: 100%;
+  min-height: calc(90vh - 60px);
+  max-width: 1200px;
+  width: 100vw;
 }
 
 .cart {
-  margin: 2rem auto;
-  min-height: 90vh;
+  background-color: #00e1ff;
+  min-height: 100%;
+  width: 100%;
   font-family: "Oswald", sans-serif;
-  border: 1px solid rgb(209, 209, 209);
   padding: 2rem;
 
   a {
     margin-top: 1rem;
+    &:hover {
+      color: #00e1ff;
+      border-bottom: 2px solid #333;
+    }
+  }
+  .keepShoppingBtn {
+    &:hover {
+      color: #fff;
+    }
   }
 
   h2 {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
   }
 }
 
 .checkoutBox {
+  background-color: #fff;
   display: flex;
   justify-content: center;
   font-family: "Oswald", sans-serif;
@@ -32,21 +43,29 @@
 
 .itemBox {
   display: flex;
-  margin: 0 auto;
-  align-items: center;
+  min-height: 100px;
   flex-direction: column;
-  width: 55%;
-  border-top: 1px solid rgb(209, 209, 209);
-  border-left: 1px solid rgb(209, 209, 209);
-  border-bottom: 1px solid rgb(209, 209, 209);
+  width: 60%;
+  border: 1px solid #333;
   padding: 1rem;
 }
 
 .subtotalBox {
-  background-color: #00e1ff;
+  width: 40%;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
+  border: 1px solid #333;
   justify-content: space-between;
+  .subTotalForm {
+    display: flex;
+    align-items: center;
+
+    button {
+      border: 2px solid #333;
+      background-color: #fff;
+    }
+  }
   div {
     padding: 1rem 0.5rem;
     width: 100%;
@@ -72,7 +91,6 @@
 }
 @media (max-width: 600px) {
   .cartContainer {
-    margin-top: 1rem;
     border: none;
   }
   .cart {
@@ -80,8 +98,10 @@
     padding: 0.3rem;
     border: none;
   }
+  .subtotalBox {
+    width: 100%;
+  }
   .itemBox {
-    border: 1px solid rgb(209, 209, 209);
     width: 100%;
   }
   .checkoutBox {

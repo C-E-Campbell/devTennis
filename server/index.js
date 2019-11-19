@@ -40,7 +40,7 @@ app.post("/api/login", auth.login);
 app.post("/api/addtocart", inventory.addToCart);
 app.post("/api/charge", util.sendPayment);
 app.post("/api/discount", util.sendDiscount);
-app.post("/api/reciept", util.sendReceipt);
+app.post("/api/receipt", util.sendReceipt);
 app.post("/api/addfavorite", inventory.addfavorites);
 app.post("/upload/:id", function(req, res) {
   if (!req.files || Object.keys(req.files).length === 0) {

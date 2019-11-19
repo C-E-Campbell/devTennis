@@ -66,18 +66,12 @@
 }
 @media (max-width: 1200px) {
   .Hero {
-    height: 50vh;
+    height: 70vh;
   }
 }
-@media (max-width: 720px) {
-  .overlay {
-    background-color: rgb(0, 0, 0);
-  }
+@media (max-width: 1050px) {
   .Hero {
-    background-color: black;
-  }
-  video {
-    display: none;
+    height: 70vh;
   }
 }
 @media (max-width: 868px) {
@@ -95,6 +89,18 @@
     a {
       font-size: 1rem;
     }
+  }
+}
+
+@media (max-width: 720px) {
+  .overlay {
+    background-color: rgb(0, 0, 0);
+  }
+  .Hero {
+    background-color: black;
+  }
+  video {
+    display: none;
   }
 }
 

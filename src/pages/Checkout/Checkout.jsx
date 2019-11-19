@@ -40,13 +40,11 @@ class Checkout extends Component {
 
       if (response.status === 200) this.setState({ complete: true });
     }
-
-    this.props.emptyCart();
   }
 
-  sendReciept = () => {
+  sendReceipt = () => {
     if (this.props.user.currentUser) {
-      axios.post("/api/reciept", {
+      axios.post("/api/receipt", {
         first: this.state.first,
         last: this.state.last,
         address: this.state.address,
@@ -56,19 +54,20 @@ class Checkout extends Component {
         sendTo: this.props.user.currentUser.email
       });
     } else {
-      axios.post("/api/reciept", {
+      axios.post("/api/receipt", {
         first: this.state.first,
         last: this.state.last,
         address: this.state.address,
         city: this.state.city,
         state: this.state.state,
         zip: this.state.zip,
-        email: this.state.email
+        sendTo: this.state.email
       });
     }
   };
 
   deleteMyItems = () => {
+    this.props.emptyCart();
     try {
       axios.delete(`/api/deletemyitems/${this.props.user.currentUser.id}`);
     } catch (err) {
@@ -80,6 +79,7 @@ class Checkout extends Component {
   }
 
   render() {
+    const { first, last, city, state, zip, address, email } = this.state;
     if (this.state.complete)
       return (
         <div className={styles.checkoutPage1}>
@@ -148,10 +148,17 @@ class Checkout extends Component {
 
             <button
               className={styles.purchaseBtn}
-              onClick={() => {
-                this.sendReciept();
-                this.submit();
-                this.deleteMyItems();
+              onClick={async e => {
+                e.preventDefault();
+                if (!city || !first || !last || !address || !state || !zip) {
+                  alert("Please Fill Out Form");
+                } else {
+                  await this.submit();
+                  if (this.state.complete) {
+                    this.deleteMyItems();
+                    this.sendReceipt();
+                  }
+                }
               }}
             >
               Purchase

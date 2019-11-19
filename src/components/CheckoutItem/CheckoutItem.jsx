@@ -15,7 +15,7 @@ function CheckoutItem(props) {
     <div>
       <div className="cartItem">
         <img className="productImg" src={props.image} alt="cart product" />
-        <div>{props.name}</div>
+        <div className="itemNameWidth">{props.name}</div>
         <div>${props.price}</div>
 
         <div className="quantityContainer">
