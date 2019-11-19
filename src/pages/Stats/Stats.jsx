@@ -19,8 +19,7 @@ export default class Stats extends Component {
       loading: true
     };
   }
-
-  async componentDidMount() {
+  getData = async () => {
     const Top20 = await axios.get(
       "https://cors-anywhere.herokuapp.com/http://api.sportradar.us/tennis-t2/en/players/race_rankings.json?api_key=pfm8bdbh8nq9ukgfuba68wdd"
     );
@@ -38,6 +37,9 @@ export default class Stats extends Component {
       showWomen: true,
       loading: false
     });
+  };
+  async componentDidMount() {
+    this.getData();
   }
 
   render() {

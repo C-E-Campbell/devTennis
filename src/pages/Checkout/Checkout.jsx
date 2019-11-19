@@ -75,6 +75,9 @@ class Checkout extends Component {
       console.log(err);
     }
   };
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
 
   render() {
     if (this.state.complete)

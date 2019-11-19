@@ -34,6 +34,7 @@ class Register extends Component {
   };
 
   componentWillUnmount() {
+    window.scrollTo(0, 0);
     this.setState({ email: "", password: "" });
   }
 

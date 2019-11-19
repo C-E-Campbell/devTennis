@@ -14,6 +14,7 @@ class Gear extends React.Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     if (this.props.items.inventory[0]) {
       const gearItems = this.props.items.inventory.filter(item => {
         return item.category === "Gear";

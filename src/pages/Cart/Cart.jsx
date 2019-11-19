@@ -19,7 +19,7 @@ import { Link } from "react-router-dom";
 
 class Cart extends Component {
   state = {
-    cartTotal: 0,
+    cartTotal: 45,
     tax: 0,
     sub: 0,
     newCart: null,
@@ -141,7 +141,6 @@ class Cart extends Component {
               ) : (
                 <div className={styles.itemBox}>Cart is empty</div>
               )}
-
               <div className={styles.subtotalBox}>
                 <div>
                   <div>

@@ -3,7 +3,7 @@ const { PORT, SESSION_STRING, CONNECTION_STRING } = process.env;
 const express = require("express");
 const massive = require("massive");
 const session = require("express-session");
-
+const fileupload = require("express-fileupload");
 const test = require("./controllers/testCtrl");
 const inventory = require("./controllers/inventoryCtrl");
 const auth = require("./controllers/authCtrl");
@@ -18,6 +18,7 @@ massive(CONNECTION_STRING).then(db => {
 });
 app.use(express.static(`${__dirname}/../build`));
 app.use(express.json());
+app.use(fileupload());
 app.use(
   session({
     secret: SESSION_STRING,
@@ -41,7 +42,21 @@ app.post("/api/charge", util.sendPayment);
 app.post("/api/discount", util.sendDiscount);
 app.post("/api/reciept", util.sendReceipt);
 app.post("/api/addfavorite", inventory.addfavorites);
+app.post("/upload/:id", function(req, res) {
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.status(400).send("No files were uploaded.");
+  }
 
+  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+  let sampleFile = req.files.sampleFile;
+
+  // Use the mv() method to place the file somewhere on your server
+  sampleFile.mv("/assets", function(err) {
+    if (err) return res.status(500).send(err);
+
+    res.send("File uploaded!");
+  });
+});
 app.put("/api/updateEmail", user.updateEmail);
 app.put("/api/updatePass", user.updatePass);
 app.put("/api/decreasecart", inventory.decreaseCart);

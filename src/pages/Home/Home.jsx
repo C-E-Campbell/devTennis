@@ -13,6 +13,7 @@ import axios from "axios";
 
 class Home extends Component {
   async componentDidMount() {
+    window.scrollTo(0, 0);
     const items = await axios.get("/api/inventory");
     if (this.props.user.currentUser) {
       const cart = await axios.get(
