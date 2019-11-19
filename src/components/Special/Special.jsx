@@ -22,9 +22,9 @@ export default function Special() {
         <div className={style.menSports}>
           <img
             data-aos="fade-right"
-            data-aos-duration="800"
+            // data-aos-duration="800"
             data-aos-once="true"
-            data-aos-delay="200"
+            // data-aos-delay="200"
             src={menSport}
             alt="mens sportswear"
           />
@@ -37,9 +37,9 @@ export default function Special() {
         <div className={style.womenSports}>
           <img
             data-aos="fade-up"
-            data-aos-duration="700"
+            // data-aos-duration="700"
             data-aos-once="true"
-            data-aos-delay="400"
+            // data-aos-delay="400"
             src={womenSport}
             alt="womens sportswear"
           />
