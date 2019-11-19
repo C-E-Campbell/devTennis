@@ -3,7 +3,7 @@ const { PORT, SESSION_STRING, CONNECTION_STRING } = process.env;
 const express = require("express");
 const massive = require("massive");
 const session = require("express-session");
-const fileupload = require("express-fileupload");
+
 const test = require("./controllers/testCtrl");
 const inventory = require("./controllers/inventoryCtrl");
 const auth = require("./controllers/authCtrl");
@@ -18,7 +18,7 @@ massive(CONNECTION_STRING).then(db => {
 });
 app.use(express.static(`${__dirname}/../build`));
 app.use(express.json());
-app.use(fileupload());
+
 app.use(
   session({
     secret: SESSION_STRING,
