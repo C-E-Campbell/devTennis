@@ -3,6 +3,8 @@ import "./Login.scss";
 import { login } from "../../redux/actions";
 import { connect } from "react-redux";
 import Footer from "../../components/Footer/Footer";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import BasicHeader from "../../components/BasicHeader/BasicHeader";
 import axios from "axios";
 
@@ -18,7 +20,12 @@ class Login extends Component {
   handleSubmit = async e => {
     e.preventDefault();
     if (this.state.email === "" || this.state.password === "") {
-      alert("Must enter password and/or email");
+      toast.configure();
+      const notify = () =>
+        toast.error("Cannot leave email/pass fields blank", {
+          autoClose: 3000
+        });
+      notify();
     } else {
       try {
         const registerUser = await axios.post("/api/login", {
@@ -28,7 +35,15 @@ class Login extends Component {
         await this.props.login(registerUser.data);
         this.props.history.push("/");
       } catch (err) {
-        alert("email/password is incorrect, you may need to register first");
+        toast.configure();
+        const notify = () =>
+          toast.error(
+            "Email or Password seems to be invalid, may need to register.",
+            {
+              autoClose: 3000
+            }
+          );
+        notify();
       }
     }
   };

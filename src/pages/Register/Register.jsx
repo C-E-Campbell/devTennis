@@ -5,6 +5,8 @@ import { register } from "../../redux/actions";
 import "./Register.scss";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class Register extends Component {
   constructor() {
@@ -18,7 +20,12 @@ class Register extends Component {
   handleSubmit = async e => {
     e.preventDefault();
     if (this.state.password === "" || this.state.email === "") {
-      alert("password and/or email cannot be left blank");
+      toast.configure();
+      const notify = () =>
+        toast.error("Cannot leave email/pass fields blank", {
+          autoClose: 3000
+        });
+      notify();
     } else {
       try {
         const registerUser = await axios.post("/api/register", {
@@ -28,7 +35,12 @@ class Register extends Component {
         this.props.register(registerUser.data);
         this.props.history.push("/");
       } catch (err) {
-        alert("User already exists with that email, please login");
+        toast.configure();
+        const notify = () =>
+          toast.error("User already exists, please login", {
+            autoClose: 3000
+          });
+        notify();
       }
     }
   };
