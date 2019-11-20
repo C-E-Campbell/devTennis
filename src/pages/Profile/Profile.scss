@@ -3,6 +3,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100vw;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.671), rgba(0, 0, 0, 0.678)),
+    url("../../assets/profilebg.jpeg");
+  background-size: cover;
+  background-position: center;
 }
 .form-section {
   width: 30%;
@@ -15,6 +20,7 @@
     margin: 0 auto;
   }
   h2 {
+    color: #fff;
     margin: 1rem 0;
     align-self: flex-start;
     font-size: 1.8rem;
@@ -48,6 +54,42 @@
         color: #fff;
         background-color: rgb(80, 80, 80);
       }
+    }
+  }
+}
+
+@media (max-width: 1300px) {
+  .form-section {
+    width: 50%;
+    margin: 2rem auto;
+
+    form {
+      input {
+        width: 100%;
+        border: none;
+      }
+      .updateBtn {
+        width: 80%;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .form-section {
+    width: 90%;
+    img {
+      width: 200px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .form-section {
+    width: 90%;
+    img {
+      width: 100px;
     }
   }
 }
