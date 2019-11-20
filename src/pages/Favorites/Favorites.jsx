@@ -92,7 +92,6 @@ class Favorites extends React.Component {
       <div>
         {this.props.user.currentUser ? (
           <div>
-            {" "}
             <BasicHeader />
             <Header />
             {this.state.data.length > 0 ? (
