@@ -14,6 +14,7 @@ class WomensClothing extends React.Component {
   }
 
   async componentDidMount() {
+    window.scrollTo(0, 0);
     if (this.props.items.inventory[0]) {
       const womensItems = this.props.items.inventory
         .filter(item => {

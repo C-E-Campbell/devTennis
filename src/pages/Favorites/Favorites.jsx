@@ -13,6 +13,7 @@ class Favorites extends React.Component {
     };
   }
   async componentDidMount() {
+    window.scrollTo(0, 0);
     if (!this.props.user.currentUser) {
       this.props.history.push("/");
     } else {
