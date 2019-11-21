@@ -51,5 +51,8 @@ app.put("/api/deletefavorite", inventory.deleteFavorite);
 app.delete("/api/logout", auth.logout);
 app.delete("/api/deletecartitem/:id/:user", inventory.deleteItem);
 app.delete("/api/deletemyitems/:user_id", inventory.emptyAfterPurchase);
-
+const path = require("path");
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build/index.html"));
+});
 app.listen(PORT, () => console.log(`server running on ${PORT}`));
