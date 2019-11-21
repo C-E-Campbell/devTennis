@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 import { addOneToCart, getCart } from "../../redux/actions";
 import BasicHeader from "../../components/BasicHeader/BasicHeader";
 import Header from "../../components/Header/Header";
@@ -103,7 +104,12 @@ class Favorites extends React.Component {
             )}
           </div>
         ) : (
-          this.props.history.push("/signin")
+          <Redirect
+            to={{
+              pathname: "/",
+              state: { from: this.props.location.pathname }
+            }}
+          />
         )}
       </div>
     );
