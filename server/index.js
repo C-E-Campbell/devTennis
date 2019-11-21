@@ -8,7 +8,6 @@ const inventory = require("./controllers/inventoryCtrl");
 const auth = require("./controllers/authCtrl");
 const user = require("./controllers/userCtrl");
 const util = require("./controllers/utilCtrl");
-const fileUpload = require("./middleware/file-upload");
 
 const app = express();
 
