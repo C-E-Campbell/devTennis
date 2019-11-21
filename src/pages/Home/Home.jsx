@@ -19,7 +19,7 @@ class Home extends Component {
       const cart = await axios.get(
         `/api/getCart/${this.props.user.currentUser.id}`
       );
-
+      console.log(cart.data);
       if (cart.data.length >= 1) {
         this.props.oldCart(cart.data);
       }
