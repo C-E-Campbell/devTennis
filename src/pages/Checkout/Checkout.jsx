@@ -7,6 +7,7 @@ import axios from "axios";
 import styles from "./Checkout.module.scss";
 import BasicHeader from "../../components/BasicHeader/BasicHeader";
 import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
 
 class Checkout extends Component {
   constructor(props) {
@@ -171,6 +172,7 @@ class Checkout extends Component {
         ) : (
           <div className={styles.checkoutPage1}>
             <BasicHeader />
+            <Header />
             <h2>Your cart is empty. </h2>
             <Link className={styles.homeBtn} to="/">
               Return home

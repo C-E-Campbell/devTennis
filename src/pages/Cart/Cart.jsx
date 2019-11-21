@@ -129,7 +129,7 @@ class Cart extends Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.cartBody}>
         <BasicHeader />
         <Header />
         <div className={styles.cartContainer}>

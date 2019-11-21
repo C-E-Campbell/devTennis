@@ -23,19 +23,25 @@ export default class Stats extends Component {
     const Top20 = await axios.get(
       "https://cors-anywhere.herokuapp.com/http://api.sportradar.us/tennis-t2/en/players/race_rankings.json?api_key=pfm8bdbh8nq9ukgfuba68wdd"
     );
+
+    this.setState({
+      topWomen: Top20.data.rankings[0].player_rankings.slice(0, 20),
+      topMen: Top20.data.rankings[1].player_rankings.slice(0, 20),
+
+      showWomen: true,
+      loading: false
+    });
+  };
+  getDoubles = async () => {
     const Top20Doubles = await axios.get(
       "https://cors-anywhere.herokuapp.com/http://api.sportradar.us/tennis-t2/en/double_teams/rankings.json?api_key=pfm8bdbh8nq9ukgfuba68wdd"
     );
     this.setState({
-      topWomen: Top20.data.rankings[0].player_rankings.slice(0, 20),
-      topMen: Top20.data.rankings[1].player_rankings.slice(0, 20),
       topDoublesMen: Top20Doubles.data.rankings[1].player_rankings.slice(0, 20),
       topDoublesWomen: Top20Doubles.data.rankings[0].player_rankings.slice(
         0,
         20
-      ),
-      showWomen: true,
-      loading: false
+      )
     });
   };
   async componentDidMount() {
@@ -128,7 +134,8 @@ export default class Stats extends Component {
               Top 20 Mens
             </h4>
             <h4
-              onClick={() => {
+              onClick={async () => {
+                await this.getDoubles();
                 this.setState({
                   showWomen: false,
                   showMen: false,
@@ -141,7 +148,8 @@ export default class Stats extends Component {
               Doubles Rankings Women
             </h4>
             <h4
-              onClick={() => {
+              onClick={async () => {
+                await this.getDoubles();
                 this.setState({
                   showWomen: false,
                   showMen: false,

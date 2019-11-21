@@ -1,16 +1,30 @@
+.cartBody {
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.726),
+      rgba(0, 0, 0, 0.507),
+      #000
+    ),
+    url("../../assets/tenniscourt.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
 .cartContainer {
-  margin: 0 auto;
+  margin: 1rem auto;
   min-height: calc(90vh - 60px);
   max-width: 1200px;
   width: 100vw;
 }
 
 .cart {
+  margin: 3rem auto;
   background-color: #00e1ff;
   min-height: 100%;
   width: 100%;
   font-family: "Oswald", sans-serif;
   padding: 2rem;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.411);
 
   a {
     margin-top: 1rem;
@@ -39,6 +53,7 @@
   color: #333;
   margin: 2rem auto;
   width: 100%;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.411);
 }
 
 .itemBox {
@@ -46,7 +61,7 @@
   min-height: 100px;
   flex-direction: column;
   width: 60%;
-  border: 1px solid #333;
+  border-radius: 4px;
   padding: 1rem;
 }
 
@@ -55,7 +70,7 @@
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  border: 1px solid #333;
+  border-radius: 4px;
   justify-content: space-between;
   .subTotalForm {
     display: flex;

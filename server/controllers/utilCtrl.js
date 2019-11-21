@@ -35,7 +35,7 @@ module.exports = {
       subject: "Your DevTennis Discount",
       text: "Hello",
       html: `<body>
-         <h1>New Message</h1>
+         
          <ul style='list-style: none; padding: 0px; font-size: 18px; color: #333, font-family: san-serif'>
              <li><h3>Hi, ${sendTo}</h3></li>
              <li><h3>Use Discount Code: 15%_MoreHappy!</h3></li>
@@ -65,30 +65,29 @@ module.exports = {
         pass: process.env.NodePass
       }
     });
-    const cartStuff = cart.map(item => {
-      return `<div>${item.name}</div>`;
-    });
+
     await transporter.sendMail({
       from: process.env.NodeEmail,
       to: sendTo,
       subject: "Your DevTennis Reciept: Thank you for your purchase!",
       text: "Hello",
-      html: `<div>
-    		<h2>Hi, ${first}. Here is your receipt</h2>
+      html: `<div font-size: 18px; color: #333, font-family: san-serif'>
+    		<h2 font-size: 18px; color: #333, font-family: san-serif>Hi, ${first}. Here is your receipt</h2>
     		
-    		<div>To: ${first} ${last}</div>
+    		<div color: #333, font-family: san-serif>To: ${first} ${last}</div>
         <div>
-        <div>Address:</div>
+        <div color: #333, font-family: san-serif>Address:</div>
           
-            <p>${address}</p>
-            <p>${city}</p>
-            <p>${city}</p>
-            <p>${state}</p>
-            <p>${zip}</p>
+            <p color: #333, font-family: san-serif>${address}</p>
+            <p color: #333, font-family: san-serif>${city}</p>
+            <p color: #333, font-family: san-serif>${state}</p>
+            <p color: #333, font-family: san-serif>${zip}</p>
          
         </div>
-        <div>Total Amount ${amount.toFixed(2)}</div>
-        
+        <div font-size: 16px, color: #333, font-family: san-serif>Total Amount ${amount.toFixed(
+          2
+        )}</div>
+        <div><h3>Order#: 45-F_glktennis</h3></div>
     		
     	  </div>`
     });

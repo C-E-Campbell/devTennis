@@ -6,8 +6,9 @@ form {
   width: 100%;
   margin: 1rem auto;
   font-family: "Oswald", sans-serif;
-  background-color: #00e1ff;
+  background-color: #fff;
   border-radius: 4px;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.411);
 
   h2 {
     font-size: 2.2rem;
@@ -15,7 +16,7 @@ form {
   }
 
   input {
-    border: 1px solid #ccc;
+    border: 1px solid rgb(58, 58, 58);
     margin: 0.5rem;
     padding: 0.3rem;
     width: 80%;
@@ -25,7 +26,7 @@ form {
 
   .work {
     margin: 0 auto;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(58, 58, 58);
     width: 80%;
     margin: 0.3rem auto;
     padding: 0.3rem;
@@ -45,13 +46,11 @@ form {
   color: rgb(32, 32, 32);
   cursor: pointer;
   font-family: "Oswald", sans-serif;
-  &:hover {
-    color: #fff;
-  }
 }
 .checkoutPage {
   height: 90vh;
   text-align: center;
+  background-color: #00e1ff;
 }
 .checkoutPage1 {
   text-align: center;
@@ -66,5 +65,10 @@ form {
     padding: 0.5rem 1rem;
     margin-top: 2rem;
     background-color: #00e1ff;
+    border: 1px solid rgb(58, 58, 58);
+
+    &:hover {
+      color: #fff;
+    }
   }
 }

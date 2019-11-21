@@ -1,7 +1,6 @@
 .MainNav {
   display: flex;
   width: 100%;
-  max-width: 1400px;
   margin: 0 auto;
   padding: 0.5rem 0;
   justify-content: space-between;
@@ -12,8 +11,10 @@
   .LogoBox {
     padding-left: 2rem;
     font-size: 1.4rem;
-    &:hover {
-      color: #00e1ff;
+    a {
+      &:hover {
+        color: #00e1ff;
+      }
     }
   }
 

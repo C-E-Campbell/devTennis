@@ -36,6 +36,7 @@
       font-size: 3rem;
     }
     form {
+      background-color: rgba(255, 255, 255, 0.089);
       display: flex;
       flex-direction: column;
       height: 40%;
@@ -44,7 +45,7 @@
       align-items: center;
 
       input {
-        border: none;
+        border: 2px solid #333;
         border-radius: 4px;
         width: 60%;
         outline: black;
@@ -52,7 +53,7 @@
         margin: 0.5rem;
       }
       button {
-        border: none;
+        border: 2px solid #333;
         border-radius: 4px;
         padding: 0.5rem 1rem;
         font-size: 1rem;
@@ -72,7 +73,7 @@
 
     form {
       height: 60%;
-      padding: 0;
+      padding: 1rem;
 
       input {
         width: 100%;
