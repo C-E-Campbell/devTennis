@@ -8,6 +8,7 @@ const inventory = require("./controllers/inventoryCtrl");
 const auth = require("./controllers/authCtrl");
 const user = require("./controllers/userCtrl");
 const util = require("./controllers/utilCtrl");
+const fileUpload = require("./middleware/file-upload");
 
 const app = express();
 
@@ -41,6 +42,7 @@ app.post("/api/charge", util.sendPayment);
 app.post("/api/discount", util.sendDiscount);
 app.post("/api/receipt", util.sendReceipt);
 app.post("/api/addfavorite", inventory.addfavorites);
+//app.post("/api/addimage", fileUpload.single("image"), auth.image);
 
 app.put("/api/updateEmail", user.updateEmail);
 app.put("/api/updatePass", user.updatePass);
