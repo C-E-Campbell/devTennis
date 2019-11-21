@@ -21,6 +21,7 @@
   img {
     height: 150px;
     margin: 0 auto;
+    border-radius: 50%;
   }
   h2 {
     text-align: center;
@@ -84,9 +85,6 @@
 @media (max-width: 800px) {
   .form-section {
     width: 90%;
-    img {
-      width: 200px;
-    }
   }
 }
 
@@ -95,6 +93,7 @@
     width: 90%;
     img {
       width: 100px;
+      height: 100px;
     }
   }
 }

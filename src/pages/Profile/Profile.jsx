@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./Profile.scss";
-import userPhoto from "../../assets/userPhoto.png";
+import userPhoto from "../../assets/josh.jpg";
 import { updateEmail, logout, login } from "../../redux/actions";
 import axios from "axios";
 import BasicHeader from "../../components/BasicHeader/BasicHeader";
