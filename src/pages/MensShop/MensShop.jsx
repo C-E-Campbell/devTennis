@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BasicHeader from "../../components/BasicHeader/BasicHeader";
 import Header from "../../components/Header/Header";
 import { Link } from "react-router-dom";
@@ -8,6 +8,9 @@ import Footer from "../../components/Footer/Footer";
 import "./MensShops.scss";
 
 const MensShop = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <div>
       <BasicHeader />

@@ -83,14 +83,23 @@
     height: 500px;
     .aboutText {
       background-size: cover;
-      background-position: right;
+      background-position: center right;
       border-radius: 0px;
       p {
+        position: relative;
+        left: 50px;
         font-size: 1rem;
         line-height: 1.2;
       }
       h4 {
+        position: relative;
+        left: 50px;
         font-size: 2rem;
+      }
+      .gearBtn {
+        position: relative;
+        left: 50px;
+        font-size: 1rem;
       }
     }
   }

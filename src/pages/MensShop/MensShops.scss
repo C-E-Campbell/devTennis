@@ -3,7 +3,7 @@
     url("../../assets/menShopTop.jpg");
   height: 50vh;
   width: 100%;
-  background-position: center;
+
   position: relative;
   background-size: cover;
   h2 {
@@ -41,17 +41,29 @@
   .menHero {
     h2 {
       top: 20%;
-      left: 50%;
+      left: 20%;
       font-size: 4rem;
       width: 35%;
     }
   }
 }
+
+@media (max-width: 1200px) {
+  .menHero {
+    h2 {
+      top: 30%;
+      left: 10%;
+      font-size: 4rem;
+      width: 45%;
+    }
+  }
+}
+
 @media (max-width: 800px) {
   .menHero {
     h2 {
       top: 30%;
-      left: 50%;
+      left: 10%;
       font-size: 3rem;
       width: 45%;
     }
@@ -62,10 +74,10 @@
   .menHero {
     height: 40vh;
     h2 {
-      top: 10%;
-      left: 40%;
+      top: 30%;
+      left: 10%;
       font-size: 2.5rem;
-      width: 60%;
+      width: 70%;
     }
   }
 }
