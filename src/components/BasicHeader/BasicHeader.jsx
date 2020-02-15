@@ -6,6 +6,7 @@ import babolat from "../../assets/babolat-logo-min.png";
 import wilson from "../../assets/wilson-logo-min.png";
 import adidas from "../../assets/Adidas-Logo-min.png";
 import prince from "../../assets/prince-logo-min.png";
+
 export default function BasicHeader() {
   return (
     <header>
