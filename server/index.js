@@ -11,17 +11,12 @@ const util = require('./controllers/utilCtrl');
 
 const app = express();
 
-const db = massive(
-  {
-    connectionString: CONNECTION_STRING,
-    ssl: {
-      rejectUnauthorized: false,
-    },
+const db = massive({
+  connectionString: CONNECTION_STRING,
+  ssl: {
+    rejectUnauthorized: false,
   },
-  {
-    scripts: '../db',
-  }
-)
+})
   .then((db) => {
     app.set('db', db);
     console.log('db connected');
