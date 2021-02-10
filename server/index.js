@@ -1,4 +1,4 @@
-require('dotenv').config({ path: '../.env' });
+require('dotenv').config({ path: '.env' });
 const { PORT, SESSION_STRING, CONNECTION_STRING } = process.env;
 const express = require('express');
 const massive = require('massive');
@@ -19,6 +19,8 @@ const db = massive({
 })
   .then((db) => {
     app.set('db', db);
+  })
+  .then(() => {
     console.log('db connected');
   })
   .catch((err) => console.log(err));

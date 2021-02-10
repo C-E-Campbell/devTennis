@@ -1,11 +1,12 @@
 module.exports = {
   getAllInventory: async (req, res) => {
-    const db = req.app.get("db");
+    const db = req.app.get('db');
+
     const inventory = await db.get_all_inventory();
     res.status(200).send(inventory);
   },
   addToCart: async (req, res) => {
-    const db = req.app.get("db");
+    const db = req.app.get('db');
     const { item, user, price } = req.body;
     const check = await db.check_cart_for_item([item, user]);
     let quantity = check.length;
@@ -19,20 +20,20 @@ module.exports = {
     res.sendStatus(200);
   },
   getCart: async (req, res) => {
-    const db = req.app.get("db");
+    const db = req.app.get('db');
     const { id } = req.params;
     const cartItems = await db.get_cart([id]);
 
     res.status(200).send(cartItems);
   },
   deleteItem: async (req, res) => {
-    const db = req.app.get("db");
+    const db = req.app.get('db');
     const { id, user } = req.params;
     await db.delete_from_cart([id, user]);
     res.sendStatus(200);
   },
   decreaseCart: async (req, res) => {
-    const db = req.app.get("db");
+    const db = req.app.get('db');
     const { item, user } = req.body;
     const quantity = await db.get_current_quantity([user, item]);
 
@@ -45,17 +46,17 @@ module.exports = {
     res.sendStatus(200);
   },
   emptyAfterPurchase: async (req, res) => {
-    const db = req.app.get("db");
+    const db = req.app.get('db');
     const { user_id } = req.params;
     await db.delete_all_items_for_user([user_id]);
-    res.status(200).send("everything deleted");
+    res.status(200).send('everything deleted');
   },
   favorites: async (req, res) => {
-    const db = req.app.get("db");
+    const db = req.app.get('db');
     const { id } = req.params;
     try {
       const results = await db.get_favorites();
-      const myFav = results.filter(fav => {
+      const myFav = results.filter((fav) => {
         return fav.user_id === Number(id);
       });
       res.status(200).send(myFav);
@@ -64,7 +65,7 @@ module.exports = {
     }
   },
   addfavorites: async (req, res) => {
-    const db = req.app.get("db");
+    const db = req.app.get('db');
     const { user_id, item_id } = req.body;
     try {
       const result = await db.check_fav_for_item([item_id, user_id]);
@@ -76,12 +77,12 @@ module.exports = {
     }
   },
   deleteFavorite: async (req, res) => {
-    const db = req.app.get("db");
+    const db = req.app.get('db');
     const { user_id, item_id } = req.body;
     try {
       db.delete_item_from_favorite([user_id, item_id]);
     } catch (err) {
       console.log(err);
     }
-  }
+  },
 };
