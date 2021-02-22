@@ -24,6 +24,7 @@ const db = massive({
     console.log('db connected');
   })
   .catch((err) => console.log(err));
+
 app.use(express.static(`${__dirname}/../build`));
 app.use(express.json());
 
